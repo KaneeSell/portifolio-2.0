@@ -108,7 +108,7 @@ export default function Menu() {
         size="20px"/>
         <button 
         onClick={()=>{setMenuOpen(!menuOpen)}}
-        onBlur={()=>{setMenuOpen(false)}}
+        onBlur={()=>{setTimeout(()=>setMenuOpen(false),1000)}}
         className={`
         ${!menuOpen && 'cursor-pointer'}
         hidden md:flex flex-col gap-1 relative cursor-default focus:outline-none

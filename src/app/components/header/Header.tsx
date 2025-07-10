@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <header 
     id="inicio"
-    className="flex flex-col-reverse md:flex-row max-w-250 justify-between items-center w-full px-5 text-4xl text-start font-extrabold text-white">
+    className="flex flex-col-reverse scroll-mt-15 md:flex-row max-w-250 justify-between items-center w-full px-5 text-4xl text-start font-extrabold text-white">
       <motion.span
         initial={{
           x: -150,

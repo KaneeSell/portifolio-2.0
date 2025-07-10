@@ -23,7 +23,7 @@ export default function Article(props: ArticleProps) {
         ease: "easeOut",
         duration: 0.3,
       }}
-      className="flex flex-col justify-center items-center gap-10 mt-15"
+      className="flex flex-col justify-center items-center gap-10 mt-15 scroll-mt-20"
     >
       <motion.h2
         initial={{
