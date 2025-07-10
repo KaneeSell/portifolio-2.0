@@ -1,0 +1,210 @@
+"use client";
+import { motion } from "motion/react";
+import Image from "next/image";
+import logo from "../../favicon.ico";
+import { useState } from "react";
+import { FaRegUser } from "react-icons/fa";
+import { IoFolderOpenOutline, IoHomeOutline } from "react-icons/io5";
+import { TiContacts } from "react-icons/ti";
+import { ThemeBtnReduzido } from "../ThemeButton";
+
+export default function Menu() {
+    const [menuOpen, setMenuOpen] = useState(false)
+
+    function MenuInferiorMobile(){
+      return (
+        <motion.div
+        initial={{
+          y: 40,
+          opacity: 0,
+        }}
+        animate={{
+          y: 0,
+          opacity: 1,
+        }}
+        viewport={{
+          once: true
+        }}
+        transition={{
+          ease: "easeOut",
+          duration: 0.4,
+        }}
+        className={`
+        flex z-1
+        brightness-90 h-15 w-full md:hidden fixed bottom-0 left-0 px-3
+        justify-between items-center bg-gray-800
+        `}>
+          <nav
+          className={`
+          flex justify-between items-center w-full gap-1
+          `}>
+            <a 
+            href="#inicio" 
+            className="py-4 w-1/4 justify-center flex hover:bg-gray-200 hover:text-black">
+              <IoHomeOutline 
+              size={'20px'} 
+              className="cursor-pointer "/>
+            </a>
+            <a 
+            href="#sobreMim" 
+            className="py-4 w-1/4 justify-center flex hover:bg-gray-200 hover:text-black">
+              <FaRegUser 
+              size={'20px'} 
+              className="cursor-pointer "/>
+            </a>
+            <a 
+            href="#projetos" 
+            className="py-4 w-1/4 justify-center flex hover:bg-gray-200 hover:text-black">
+              <IoFolderOpenOutline 
+              size={'20px'} 
+              className="cursor-pointer "/>
+            </a>
+            <a 
+            href="#contato" 
+            className="py-4 w-1/4 justify-center flex hover:bg-gray-200 hover:text-black">
+              <TiContacts 
+              size={'24px'} 
+              className="cursor-pointer "/>
+            </a>
+          </nav>
+        </motion.div>
+      )
+    }
+
+  return (
+    <div
+      className={`
+        flex w-full justify-between h-15 text-white
+        `}
+    >
+      {/* Menu Superior */}
+      <motion.div
+        initial={{
+          y: -40,
+          opacity: 0,
+        }}
+        animate={{
+          y: 0,
+          opacity: 1,
+        }}
+        transition={{
+          ease: "easeOut",
+          duration: 0.4,
+        }}
+        className={`
+            brightness-90 h-15 w-full flex fixed top-0 left-0 px-3
+            justify-between items-center backdrop-blur bg-white/10
+            `}
+      >
+        <span className="flex items-center gap-2">
+          <Image alt="icon" src={logo} height={45} />
+        </span>
+        <h1 className="cursor-default text-2xl font-extrabold font-serif">
+            Kane&apos;e Sell
+        </h1>
+        <span className="flex items-center gap-5">
+        <ThemeBtnReduzido
+        icones="icones-5"
+        size="20px"/>
+        <button 
+        onClick={()=>{setMenuOpen(!menuOpen)}}
+        onBlur={()=>{setMenuOpen(false)}}
+        className={`
+        ${!menuOpen && 'cursor-pointer'}
+        hidden md:flex flex-col gap-1 relative cursor-default focus:outline-none
+        `}>
+            <motion.span
+            initial={{
+                x: 0,
+                y: 0,
+                rotate: 0
+            }}
+            animate={{
+                x: 0,
+                y: menuOpen? 8 : 0,
+                rotate: menuOpen? 45 : 0
+            }}
+            transition={{
+                ease: 'easeOut',
+                duration: 0.4
+            }}
+            className="h-1 bg-white w-7 flex rounded-2xl z-1"/>
+            <motion.span 
+            initial={{
+                x: 0,
+                y: 0,
+                rotate: 0,
+                opacity: 1
+            }}
+            animate={{
+                x: 0,
+                y: 0,
+                rotate: 0,
+                opacity: menuOpen? 0 : 1
+            }}
+            transition={{
+                ease: 'easeOut',
+                duration: 0.4
+            }}
+            className="h-1 bg-white w-7 flex rounded-2xl z-1"/>
+            <motion.span 
+            initial={{
+                x: 0,
+                y: 0,
+                rotate: 0
+            }}
+            animate={{
+                x: 0,
+                y: menuOpen? -8 : 0,
+                rotate: menuOpen? -45 : 0
+            }}
+            transition={{
+                ease: 'easeOut',
+                duration: 0.4
+            }}
+            className="h-1 bg-white w-7 flex rounded-2xl z-1"/>
+            {/* Menu Suspenso */}
+            <motion.nav 
+            initial={{
+                scale: 0,
+                x: 50,
+                y: -80,
+                opacity: 0
+            }}
+            animate={{
+                scale: menuOpen? 1 : 0,
+                x: menuOpen? 0 : 40,
+                y: menuOpen? 0 : -75,
+                opacity: menuOpen? 1 : 0
+            }}
+            transition={{
+                ease: 'easeOut',
+                duration: 0.3
+            }}
+            className="absolute right-[-10] top-[-10] bg-gray-700 rounded-2xl py-2 px-3 pt-10 flex flex-col gap-2 text-nowrap">
+              <span className="h-7 w-7 cursor-pointer absolute right-2.5 top-1.5 z-2"/>
+                <a
+                href="#inicio"
+                className="hover:bg-gray-200 rounded-lg px-3 py-1 hover:text-black font-bold cursor-pointer"
+                >Início</a>
+                <a
+                href="#sobreMim"
+                className="hover:bg-gray-200 rounded-lg px-3 py-1 hover:text-black font-bold cursor-pointer"
+                >Sobre Mim</a>
+                <a
+                href="#Projetos"
+                className="hover:bg-gray-200 rounded-lg px-3 py-1 hover:text-black font-bold cursor-pointer"
+                >Projetos</a>
+                <a
+                href="#Contato"
+                className="hover:bg-gray-200 rounded-lg px-3 py-1 hover:text-black font-bold cursor-pointer"
+                >Contato</a>
+            </motion.nav>
+        </button>
+        </span>
+      </motion.div>
+      {/* Menu Inferior Mobile */}
+      <MenuInferiorMobile/>
+    </div>
+  );
+}
