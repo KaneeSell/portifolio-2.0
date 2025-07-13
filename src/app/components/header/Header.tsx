@@ -16,7 +16,7 @@ export default function Header() {
         }}
         whileInView={{
           x: 0,
-          opacity: 1,
+          opacity: 1, transition:{ease: 'easeOut', duration: 0.6, times: [0.4]},
         }}
         viewport={{
           once: true
@@ -27,7 +27,21 @@ export default function Header() {
         }}
         className="md:w-3/5 mt-5 md:mt-15"
       >
-        <span className="flex items-center flex-col text-center justify-between h-full md:py-4 gap-5">
+        <motion.span 
+          initial={{
+            opacity: 0,
+          }}
+          whileInView={{
+            opacity: 1,
+          }} 
+          viewport={{
+            once: true
+          }}
+          transition={{
+            ease: 'easeOut',
+            duration: 0.6
+          }}
+        className="flex items-center flex-col text-center justify-between h-full md:py-4 gap-5">
           Seja bem vindo ao meu Portifólio!
           <a
           href="./Curriculo Daniel Henrique Sell.pdf"
@@ -37,23 +51,23 @@ export default function Header() {
             <MdOutlineSimCardDownload size={'25px'} className="group-hover:hidden"/>
             <MdSimCardDownload size={'25px'} className="hidden group-hover:flex"/>
             </a>
-        </span>
+        </motion.span>
       </motion.span>
       <motion.span
         initial={{
-          x: 200,
+          x: 150,
           opacity: 0,
         }}
         whileInView={{
           x: 0,
-          opacity: 1,
+          opacity: 1, transition: {ease: 'easeOut', duration: 0.6, times: [0.4]},
         }}
         viewport={{
           once: true
         }}
         transition={{
           ease: "easeOut",
-          duration: 0.4,
+          duration: 0.6,
         }}
         className="rounded-full"
       >

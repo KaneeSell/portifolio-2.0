@@ -34,7 +34,22 @@ export default function Footer() {
       <a href="#inicio" className="absolute top-4 cursor-pointer">
         <IoIosArrowUp size={"35px"} />
       </a>
-      <span className="flex flex-col mt-5 w-full md:flex-row justify-center items-center gap-3 md:gap-0 sm:justify-between sm:flex z-1">
+      <motion.span
+          initial={{
+            opacity: 0,
+          }}
+          whileInView={{
+            opacity: 1,
+          }} 
+          viewport={{
+            once: true
+          }}
+          transition={{
+            times: [0.4],
+            ease: 'easeOut',
+            duration: 0.6
+          }}
+      className="flex flex-col mt-5 w-full md:flex-row justify-center items-center gap-3 md:gap-0 sm:justify-between sm:flex z-1">
         <span className="w-1/2 lg:w-1/3 lg:pe-10 justify-center flex flex-col lg:flex-row-reverse px-3 lg:px-0 gap-2 items-center md:items-start lg:items-center lg:justify-between">
         <figure>
           <Image
@@ -51,7 +66,7 @@ export default function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Repositório GitHub
+          Repositório Potifólio
         </a>
         </span>
         <figure className="lg:w-1/3 items-center hidden lg:flex justify-center">
@@ -76,7 +91,7 @@ export default function Footer() {
             <p>Todos os direitos reservados.</p>
           </span>
         </div>
-      </span>
+      </motion.span>
     </motion.footer>
   );
 }

@@ -16,14 +16,14 @@ export default function ContainerMiniatura(props: ContainerMiniaturaProps) {
             }}
             whileInView={{
               scale: 1,
-              opacity: 1,
+              opacity: 1, transition: {ease: 'easeOut', duration: 0.6, times:[0.4]},
             }}
             viewport={{
               once: true,
             }}
             transition={{
               ease: "easeOut",
-              duration: 0.3,
+              duration: 0.4,
             }}
       className={`
         flex gap-2 items-center border-2 rounded-xl py-1 px-4

@@ -26,14 +26,14 @@ export default function TecnologiasUsadas(props: TecnologiasUsadasProps) {
             }}
             whileInView={{
               y: 0,
-              opacity: 1,
+              opacity: 1, transition: {ease: 'easeOut', duration: 0.6, times:[0.4]},
             }}
             viewport={{
               once: true,
             }}
             transition={{
               ease: "easeOut",
-              duration: 0.3,
+              duration: 0.4,
             }}
           className="text-2xl md:text-4xl font-mono font-bold">
             {item.nome}

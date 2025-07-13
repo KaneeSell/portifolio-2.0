@@ -51,38 +51,38 @@ export default function SobreMim() {
         <span className="text-start">
           <motion.h3
             initial={{
-              y: 10,
+              y: 20,
               opacity: 0,
             }}
             whileInView={{
               y: 0,
-              opacity: 1,
+              opacity: 1, transition: {ease: 'easeOut', duration: 0.6, times:[0.4]},
             }}
             viewport={{
               once: true,
             }}
             transition={{
               ease: "easeOut",
-              duration: 0.3,
+              duration: 0.4,
             }}
           className="text-2xl md:text-4xl font-serif font-semibold text-white">
             Tecnologias que uso frequentemente
           </motion.h3>
           <motion.p
             initial={{
-              y: -10,
+              y: -20,
               opacity: 0,
             }}
             whileInView={{
               y: 0,
-              opacity: 1,
+              opacity: 1, transition: {ease: 'easeOut', duration: 0.6, times:[0.4]},
             }}
             viewport={{
               once: true,
             }}
             transition={{
               ease: "easeOut",
-              duration: 0.3,
+              duration: 0.6,
             }}
           className="text-sm md:text-base text-gray-300">
             Uso tecnologias focadas para entregar conteúdos incríveis e com alto

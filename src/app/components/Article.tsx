@@ -14,7 +14,7 @@ export default function Article(props: ArticleProps) {
         opacity: 0,
       }}
       whileInView={{
-        opacity: 1,
+        opacity: 1, transition: {ease: 'easeOut', duration: 0.6, times:[0.4]},
       }}
       viewport={{
         once: true,
@@ -27,7 +27,7 @@ export default function Article(props: ArticleProps) {
     >
       <motion.h2
         initial={{
-          x: 50,
+          x: 100,
         }}
         whileInView={{
           x: 0,
@@ -45,7 +45,7 @@ export default function Article(props: ArticleProps) {
       </motion.h2>
       <motion.section
         initial={{
-          x: -50,
+          x: -100,
         }}
         whileInView={{
           x: 0,

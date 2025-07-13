@@ -13,6 +13,7 @@ interface projetoDadosInterface {
     repo: string;
     status: "Concluido" | "Em Desenvolvimento";
     versao: "FullClient" | "MVP" | "Protótipo";
+    imagemCaminho?: string[]
     imagem?: StaticImageData
   }[];
 }
@@ -26,6 +27,7 @@ export const projetoDados: projetoDadosInterface = {
       repo: "https://github.com/KaneeSell/empresas-react",
       status: "Concluido",
       versao: "Protótipo",
+      imagemCaminho: ["https://i.imgur.com/BnfrGUH.png"],
       imagem: ImgEmpresasReact
     },
     {
@@ -35,6 +37,7 @@ export const projetoDados: projetoDadosInterface = {
       repo: "https://github.com/KaneeSell/AgendaProMaster",
       status: "Concluido",
       versao: "MVP",
+      imagemCaminho: ["https://i.imgur.com/65Ib450.png"],
       imagem: ImgAgendaProMaster
     },
     {
@@ -44,6 +47,7 @@ export const projetoDados: projetoDadosInterface = {
       repo: "https://github.com/KaneeSell/Agenda-2.0",
       status: "Em Desenvolvimento",
       versao: "MVP",
+      imagemCaminho: ["https://i.imgur.com/sFovr4R.png"],
       imagem: Imgagenda2
     },
     {
@@ -53,6 +57,7 @@ export const projetoDados: projetoDadosInterface = {
       repo: "https://github.com/KaneeSell/ERP-Lite",
       status: "Em Desenvolvimento",
       versao: "Protótipo",
+      imagemCaminho: ["https://i.imgur.com/m63lpva.png"],
       imagem: ImgERPLite
     },
     {
@@ -61,6 +66,7 @@ export const projetoDados: projetoDadosInterface = {
       repo: "https://github.com/KaneeSell/Projeto-Cadastro-de-Usuario",
       status: "Em Desenvolvimento",
       versao: "Protótipo",
+      imagemCaminho: ["https://i.imgur.com/OjGBekJ.png"],
       imagem: ImgCadastrodeUsuario
     },
   ],

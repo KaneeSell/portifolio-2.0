@@ -1,3 +1,5 @@
+'use client'
+import { motion } from "motion/react";
 import { Fragment } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiGmail, SiWhatsapp } from "react-icons/si";
@@ -12,7 +14,20 @@ interface BtnWhatsappProps {
 }
 export function BtnWhatsapp(props: BtnWhatsappProps) {
   return (
-    <a
+    <motion.a
+          initial={{
+            opacity: 0,
+          }}
+          whileInView={{
+            opacity: 1, transition: {ease: 'easeOut', duration: 0.6, times:[0.4]},
+          }} 
+          viewport={{
+            once: true
+          }}
+          transition={{
+            ease: 'easeOut',
+            duration: 0.4
+          }}
       target="_blank"
       rel="noopener noreferrer"
       href={gerarLinkWhatsApp(
@@ -26,24 +41,70 @@ export function BtnWhatsapp(props: BtnWhatsappProps) {
     >
       <SiWhatsapp size={"20px"} className="cursor-pointer" />
       <span>Whatsapp</span>
-    </a>
+    </motion.a>
   );
 }
 
 export default function Contato() {
   return (
     <Fragment>
-      <div
+      <motion.div
+          initial={{
+            opacity: 0,
+            x: 150
+          }}
+          whileInView={{
+            opacity: 1, transition: {ease: 'easeOut', duration: 0.6, times:[0.4]},
+            x: 0
+          }} 
+          viewport={{
+            once: true
+          }}
+          transition={{
+            ease: 'easeOut',
+            duration: 0.4
+          }}
         id="contato"
         className="scroll-m-15 mt-10 lg:w-2/3 px-5 flex flex-col justify-center items-center gap-10 w-full"
       >
         <span className="flex flex-col gap-5 border-1 p-10 lg:p-20 rounded-3xl">
-          <span className="text-3xl md:text-5xl font-serif font-extrabold text-white">
+          <motion.span
+          initial={{
+            opacity: 0,
+            y: 50
+          }}
+          whileInView={{
+            opacity: 1, transition: {ease: 'easeOut', duration: 0.6, times:[0.4]},
+            y: 0
+          }} 
+          viewport={{
+            once: true
+          }}
+          transition={{
+            ease: 'easeOut',
+            duration: 0.4
+          }}
+          className="text-3xl md:text-5xl font-serif font-extrabold text-white">
             Contato
-          </span>
+          </motion.span>
           <span className="flex flex-wrap items-center gap-5 justify-center">
             <span className="flex flex-col gap-5">
-              <a
+              <motion.a
+          initial={{
+            opacity: 0,
+            y: -50
+          }}
+          whileInView={{
+            opacity: 1, transition: {ease: 'easeOut', duration: 0.6, times:[0.4]},
+            y: 0
+          }} 
+          viewport={{
+            once: true
+          }}
+          transition={{
+            ease: 'easeOut',
+            duration: 0.4
+          }}
                 rel="noopener noreferrer"
                 href=""
                 className="flex items-center gap-1 bg-[#25D366] px-2 py-0.5 rounded-2xl 
@@ -52,8 +113,23 @@ export default function Contato() {
               >
                 <SiWhatsapp size={"20px"} className="" />
                 Whatsapp
-              </a>
-              <a
+              </motion.a>
+              <motion.a
+          initial={{
+            opacity: 0,
+            y: -50
+          }}
+          whileInView={{
+            opacity: 1, transition: {ease: 'easeOut', duration: 0.6, times:[0.4]},
+            y: 0
+          }} 
+          viewport={{
+            once: true
+          }}
+          transition={{
+            ease: 'easeOut',
+            duration: 0.6
+          }}
                 rel="noopener noreferrer"
                 href=""
                 className="flex items-center gap-1 bg-[#0A66C2] px-2 py-0.5 rounded-2xl 
@@ -62,10 +138,26 @@ export default function Contato() {
               >
                 <FaLinkedin size={"20px"} className="" />
                 LinkedIn
-              </a>
+              </motion.a>
             </span>
             <span className="flex flex-col gap-5">
-              <a
+              <motion.a
+          initial={{
+            opacity: 0,
+            y: -50
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0
+          }} 
+          viewport={{
+            once: true
+          }}
+          transition={{
+            times: [0.4],
+            ease: 'easeOut',
+            duration: 0.6
+          }}
                 rel="noopener noreferrer"
                 href=""
                 className="flex items-center gap-1 bg-[#181717] px-2 py-0.5 rounded-2xl 
@@ -74,8 +166,24 @@ export default function Contato() {
               >
                 <FaGithub size={"20px"} className="" />
                 GitHub
-              </a>
-              <a
+              </motion.a>
+              <motion.a
+          initial={{
+            opacity: 0,
+            y: -50
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0
+          }} 
+          viewport={{
+            once: true
+          }}
+          transition={{
+            times: [0.4],
+            ease: 'easeOut',
+            duration: 0.6
+          }}
                 rel="noopener noreferrer"
                 href=""
                 className="flex items-center gap-1 bg-[#D93025] px-2 py-0.5 rounded-2xl 
@@ -84,12 +192,28 @@ export default function Contato() {
               >
                 <SiGmail size={"20px"} className="" />
                 Gmail
-              </a>
+              </motion.a>
             </span>
           </span>
         </span>
-      </div>
-      <a
+      </motion.div>
+      <motion.a
+          initial={{
+            opacity: 0,
+            y: 100
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0
+          }} 
+          viewport={{
+            once: true
+          }}
+          transition={{
+            times: [0.4],
+            ease: 'easeOut',
+            duration: 0.6
+          }}
         target="_blank"
         rel="noopener noreferrer"
         href={gerarLinkWhatsApp(
@@ -98,7 +222,7 @@ export default function Contato() {
         className="flex md:hidden fixed bottom-20 right-5 bg-green-400 rounded-full z-2"
       >
         <SiWhatsapp size={"40px"} className="cursor-pointer" />
-      </a>
+      </motion.a>
     </Fragment>
   );
 }
