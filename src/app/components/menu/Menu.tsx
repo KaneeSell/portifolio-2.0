@@ -7,6 +7,7 @@ import { FaRegUser } from "react-icons/fa";
 import { IoFolderOpenOutline, IoHomeOutline } from "react-icons/io5";
 import { TiContacts } from "react-icons/ti";
 import { ThemeBtnReduzido } from "../ThemeButton";
+import { BtnWhatsapp } from "../Contato";
 
 export default function Menu() {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -30,7 +31,7 @@ export default function Menu() {
           duration: 0.4,
         }}
         className={`
-        flex z-1
+        flex z-2
         brightness-90 h-15 w-full md:hidden fixed bottom-0 left-0 px-3
         justify-between items-center bg-gray-800
         `}>
@@ -92,23 +93,26 @@ export default function Menu() {
           duration: 0.4,
         }}
         className={`
-            brightness-90 h-15 w-full flex fixed top-0 left-0 px-3
+            brightness-90 h-15 w-full flex fixed top-0 left-0 px-3 z-2
             justify-between items-center backdrop-blur bg-white/10
             `}
       >
         <span className="flex items-center gap-2">
           <Image alt="icon" src={logo} height={45} />
         </span>
-        <h1 className="cursor-default text-2xl font-extrabold font-serif">
+        <span className="relative w-full flex justify-center items-center">
+        <h1 className="fixed cursor-default text-2xl font-extrabold font-serif">
             Kane&apos;e Sell
         </h1>
+        </span>
         <span className="flex items-center gap-5">
+        <BtnWhatsapp className="hidden md:flex"/>
         <ThemeBtnReduzido
         icones="icones-5"
         size="20px"/>
         <button 
         onClick={()=>{setMenuOpen(!menuOpen)}}
-        onBlur={()=>{setTimeout(()=>setMenuOpen(false),1000)}}
+        onBlur={()=>{setTimeout(()=>setMenuOpen(false),100)}}
         className={`
         ${!menuOpen && 'cursor-pointer'}
         hidden md:flex flex-col gap-1 relative cursor-default focus:outline-none
@@ -192,11 +196,11 @@ export default function Menu() {
                 className="hover:bg-gray-200 rounded-lg px-3 py-1 hover:text-black font-bold cursor-pointer"
                 >Sobre Mim</a>
                 <a
-                href="#Projetos"
+                href="#projetos"
                 className="hover:bg-gray-200 rounded-lg px-3 py-1 hover:text-black font-bold cursor-pointer"
                 >Projetos</a>
                 <a
-                href="#Contato"
+                href="#contato"
                 className="hover:bg-gray-200 rounded-lg px-3 py-1 hover:text-black font-bold cursor-pointer"
                 >Contato</a>
             </motion.nav>

@@ -22,6 +22,11 @@ export const linguagem = {
       icon: "devicon-css3-plain",
     },
     {
+      nome: "Java",
+      descricao: "Back-end Robusto.",
+      icon: "devicon-java-plain",
+    },
+    {
       nome: "PHP",
       descricao: "lado do servidor Web.",
       icon: "devicon-php-plain",
@@ -59,7 +64,7 @@ export const estilizacao = {
     },
     {
       nome: "Bootstrap ",
-      descricao: "Componentes prontos Legado.",
+      descricao: "Componentes prontos.",
       icon: "devicon-bootstrap-plain",
     },
     {
