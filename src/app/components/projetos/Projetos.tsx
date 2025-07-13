@@ -140,7 +140,7 @@ export default function Projetos() {
                 </a>
               )}
               <a
-                href={projeto.link}
+                href={projeto.repo}
                 target="_blank"
                 className="bg-green-500 px-2 py-0.5 hover:bg-green-600"
                 rel="noopener noreferrer"
