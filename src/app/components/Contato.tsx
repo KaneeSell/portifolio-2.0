@@ -84,10 +84,10 @@ export default function Contato() {
             ease: 'easeOut',
             duration: 0.4
           }}
-          className="text-3xl md:text-5xl font-serif font-extrabold text-white">
+          className="text-3xl md:text-5xl font-serif font-extrabold">
             Contato
           </motion.span>
-          <span className="flex flex-wrap items-center gap-5 justify-center">
+          <span className="flex flex-wrap items-center gap-5 justify-center text-white">
             <span className="flex flex-col gap-5">
               <motion.a
           initial={{
@@ -219,7 +219,7 @@ export default function Contato() {
         href={gerarLinkWhatsApp(
           "Olá! Vim pelo seu portifólio, e gostaria de tirar uma duvida."
         )}
-        className="flex md:hidden fixed bottom-20 right-5 bg-green-400 rounded-full z-2"
+        className="flex text-white md:hidden fixed bottom-20 right-5 bg-green-400 rounded-full z-2"
       >
         <SiWhatsapp size={"40px"} className="cursor-pointer" />
       </motion.a>

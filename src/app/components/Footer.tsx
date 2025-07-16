@@ -24,13 +24,13 @@ export default function Footer() {
       }}
       className={`
         flex flex-wrap mt-5 w-full px-5 items-center
-        md:max-w-2/3 justify-center text-gray-300 relative
+        md:max-w-2/3 justify-center text-gray-300 light:text-neutral-700 relative
         pt-10
         `}
     >
-      <span className="w-full h-[0.06em] bg-neutral-400" />
-      <span className="absolute top-4 bg-black border-1 border-b-0 rounded-3xl p-5" />
-      <span className="absolute top-10 bg-black p-5" />
+      <span className="w-full h-[0.06em] bg-neutral-400 light:bg-neutral-700" />
+      <span className="absolute top-4 bg-black light:bg-neutral-200 border-1 border-b-0 rounded-3xl p-5" />
+      <span className="absolute top-10 bg-black light:bg-neutral-200 p-5" />
       <a href="#inicio" className="absolute top-4 cursor-pointer">
         <IoIosArrowUp size={"35px"} />
       </a>
@@ -80,13 +80,13 @@ export default function Footer() {
         </figure>
         <div className="w-full lg:w-1/3  justify-center flex flex-col px-3 gap-2 items-center md:items-end lg:items-center">
           <span className="flex flex-col text-base sm:gap-1 sm:text-sm text-nowrap items-center w-1/2 justify-center leading-3">
-            <p className="text-white text-sm font-semibold">Feito com</p>
+            <p className="text-base sm:text-sm font-semibold">Feito com</p>
             <p>Next.Js • TailwindCSS • Vercel</p>
           </span>
           <span className="flex flex-col sm:flex gap-1 sm:text-sm text-nowrap items-center w-1/2 justify-center leading-3">
             <span className="flex gap-1 text-base sm:text-sm text-nowrap">
               <p>© 2025</p>
-              <p className="text-white font-semibold">Kane&apos;e Sell</p>
+              <p className="font-semibold">Kane&apos;e Sell</p>
             </span>
             <p>Todos os direitos reservados.</p>
           </span>

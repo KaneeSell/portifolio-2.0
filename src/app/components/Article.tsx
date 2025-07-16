@@ -59,7 +59,7 @@ export default function Article(props: ArticleProps) {
         }}
         className={`
         px-5 md:max-w-2/3 flex flex-col justify-center 
-        items-center text-justify text-gray-300
+        items-center text-justify text-gray-300 light:text-gray-700
       ${props.className}
       `}
       >

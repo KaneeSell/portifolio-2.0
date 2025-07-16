@@ -27,12 +27,13 @@ export default function ContainerMiniatura(props: ContainerMiniaturaProps) {
             }}
       className={`
         flex gap-2 items-center border-2 rounded-xl py-1 px-4
-        hover:bg-gray-700 cursor-pointer hover:text-black
+        hover:bg-gray-700 cursor-pointer
         border-gray-600 hover:border-gray-600 leading-5
+        light:hover:bg-gray-500
         text-start group
         `}
     >
-      <figure className="group-hover:bg-gray-950 bg-gray-600 p-2 rounded-lg">
+      <figure className="group-hover:bg-gray-950 light:group-hover:bg-gray-700 bg-gray-600 light:bg-gray-400 p-2 rounded-lg">
         <i
           className={`
                 ${props.clasName}
@@ -42,10 +43,10 @@ export default function ContainerMiniatura(props: ContainerMiniaturaProps) {
       </figure>
       <div>
         <div className="flex items-center gap-1">
-          <h4 className="text-white font-bold">{props.titulo}</h4>
+          <h4 className="font-bold">{props.titulo}</h4>
           {props.estudando && <h4 className="text-blue-500 font-bold">Estudando</h4>}
         </div>
-        <h5>{props.subtitulo}</h5>
+        <h5 className="text-gray-300 light:text-gray-700">{props.subtitulo}</h5>
       </div>
     </motion.span>
   );

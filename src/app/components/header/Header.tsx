@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <header 
     id="inicio"
-    className="flex flex-col-reverse scroll-mt-15 md:flex-row max-w-250 justify-between items-center w-full px-5 text-4xl text-start font-extrabold text-white">
+    className="flex flex-col-reverse scroll-mt-15 md:flex-row max-w-250 justify-between items-center w-full px-5 text-4xl text-start font-extrabold light:text-black text-white">
       <motion.span
         initial={{
           x: -150,
@@ -46,7 +46,7 @@ export default function Header() {
           <a
           href="./Curriculo Daniel Henrique Sell.pdf"
           download
-          className="text-2xl bg-blue-500 rounded-2xl px-5 py-1 group flex items-center gap-3 cursor-pointer hover:bg-blue-600">
+          className="text-2xl text-white bg-blue-500 rounded-2xl px-5 py-1 group flex items-center gap-3 cursor-pointer hover:bg-blue-600">
             Baixar CV
             <MdOutlineSimCardDownload size={'25px'} className="group-hover:hidden"/>
             <MdSimCardDownload size={'25px'} className="hidden group-hover:flex"/>

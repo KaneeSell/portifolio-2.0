@@ -33,7 +33,7 @@ export default function Menu() {
         className={`
         flex z-10
         brightness-90 h-15 w-full md:hidden fixed bottom-0 left-0 px-3
-        justify-between items-center bg-gray-800
+        justify-between items-center bg-gray-800 light:bg-neutral-400
         `}
       >
         <nav
@@ -43,25 +43,25 @@ export default function Menu() {
         >
           <a
             href="#inicio"
-            className="py-4 w-1/4 justify-center flex hover:bg-gray-200 hover:text-black"
+            className="py-4 w-1/4 justify-center flex light:hover:bg-neutral-600 light:hover:text-white hover:bg-gray-200 hover:text-black"
           >
             <IoHomeOutline size={"20px"} className="cursor-pointer " />
           </a>
           <a
             href="#sobreMim"
-            className="py-4 w-1/4 justify-center flex hover:bg-gray-200 hover:text-black"
+            className="py-4 w-1/4 justify-center flex light:hover:bg-neutral-600 light:hover:text-white hover:bg-gray-200 hover:text-black"
           >
             <FaRegUser size={"20px"} className="cursor-pointer " />
           </a>
           <a
             href="#projetos"
-            className="py-4 w-1/4 justify-center flex hover:bg-gray-200 hover:text-black"
+            className="py-4 w-1/4 justify-center flex light:hover:bg-neutral-600 light:hover:text-white hover:bg-gray-200 hover:text-black"
           >
             <IoFolderOpenOutline size={"20px"} className="cursor-pointer " />
           </a>
           <a
             href="#contato"
-            className="py-4 w-1/4 justify-center flex hover:bg-gray-200 hover:text-black"
+            className="py-4 w-1/4 justify-center flex light:hover:bg-neutral-600 light:hover:text-white hover:bg-gray-200 hover:text-black"
           >
             <TiContacts size={"24px"} className="cursor-pointer " />
           </a>
@@ -73,7 +73,7 @@ export default function Menu() {
   return (
     <div
       className={`
-        flex w-full justify-between h-15 text-white
+        flex w-full justify-between h-15 text-white light:text-black
         `}
     >
       {/* Menu Superior */}
@@ -92,9 +92,29 @@ export default function Menu() {
         }}
         className={`
             brightness-90 h-15 w-full flex fixed top-0 left-0 px-3 z-10
-            justify-between items-center backdrop-blur bg-white/10
+            justify-between items-center backdrop-blur bg-white/10 light:bg-black/10
             `}
       >
+        <motion.span 
+          initial={{
+            opacity: 0,
+          }}
+          whileInView={{
+            opacity: 1,
+          }} 
+          viewport={{
+            once: true
+          }}
+          transition={{
+            times: [0.4],
+            ease: 'easeOut',
+            duration: 0.6
+          }}
+        className="fixed w-full flex justify-center items-center">
+          <h1 className="fixed cursor-default text-2xl font-extrabold font-serif">
+            Kane&apos;e Sell
+          </h1>
+        </motion.span>
         <motion.span
           initial={{
             opacity: 0,
@@ -112,26 +132,6 @@ export default function Menu() {
           }}
         className="flex items-center gap-2">
           <Image alt="icon" src={logo} height={45} />
-        </motion.span>
-        <motion.span 
-          initial={{
-            opacity: 0,
-          }}
-          whileInView={{
-            opacity: 1,
-          }} 
-          viewport={{
-            once: true
-          }}
-          transition={{
-            times: [0.4],
-            ease: 'easeOut',
-            duration: 0.6
-          }}
-        className="relative w-full flex justify-center items-center">
-          <h1 className="fixed cursor-default text-2xl font-extrabold font-serif">
-            Kane&apos;e Sell
-          </h1>
         </motion.span>
         <motion.span 
           initial={{
@@ -178,7 +178,7 @@ export default function Menu() {
                 ease: "easeOut",
                 duration: 0.4,
               }}
-              className="h-1 bg-white w-7 flex rounded-2xl z-1"
+              className="h-1 bg-white light:bg-black w-7 flex rounded-2xl z-1"
             />
             <motion.span
               initial={{
@@ -197,7 +197,7 @@ export default function Menu() {
                 ease: "easeOut",
                 duration: 0.4,
               }}
-              className="h-1 bg-white w-7 flex rounded-2xl z-1"
+              className="h-1 bg-white light:bg-black w-7 flex rounded-2xl z-1"
             />
             <motion.span
               initial={{
@@ -214,7 +214,7 @@ export default function Menu() {
                 ease: "easeOut",
                 duration: 0.4,
               }}
-              className="h-1 bg-white w-7 flex rounded-2xl z-1"
+              className="h-1 bg-white light:bg-black w-7 flex rounded-2xl z-1"
             />
             {/* Menu Suspenso */}
             <motion.nav
@@ -234,7 +234,7 @@ export default function Menu() {
                 ease: "easeOut",
                 duration: 0.3,
               }}
-              className="absolute right-[-10] top-[-10] bg-gray-700 rounded-2xl py-2 px-3 pt-10 flex flex-col gap-2 text-nowrap"
+              className="absolute right-[-10] top-[-10] bg-gray-700 light:bg-neutral-400 rounded-2xl py-2 px-3 pt-10 flex flex-col gap-2 text-nowrap"
             >
               <span className="h-7 w-7 cursor-pointer absolute right-2.5 top-1.5 z-15" />
               <AnimatePresence mode='wait'>
@@ -252,7 +252,7 @@ export default function Menu() {
                   duration: 0.6,
                 }}
                 href="#inicio"
-                className="hover:bg-gray-200 rounded-lg px-3 py-1 hover:text-black font-bold cursor-pointer"
+                className="hover:bg-gray-200 light:hover:bg-neutral-600 light:hover:text-white rounded-lg px-3 py-1 hover:text-black font-bold cursor-pointer"
               >
                 Início
               </motion.a>
@@ -270,7 +270,7 @@ export default function Menu() {
                   duration: 0.6,
                 }}
                 href="#sobreMim"
-                className="hover:bg-gray-200 rounded-lg px-3 py-1 hover:text-black font-bold cursor-pointer"
+                className="hover:bg-gray-200 rounded-lg px-3 py-1 light:hover:bg-neutral-600 light:hover:text-white hover:text-black font-bold cursor-pointer"
               >
                 Sobre Mim
               </motion.a>
@@ -288,7 +288,7 @@ export default function Menu() {
                   duration: 0.6,
                 }}
                 href="#projetos"
-                className="hover:bg-gray-200 rounded-lg px-3 py-1 hover:text-black font-bold cursor-pointer"
+                className="hover:bg-gray-200 rounded-lg px-3 py-1 light:hover:bg-neutral-600 light:hover:text-white hover:text-black font-bold cursor-pointer"
               >
                 Projetos
               </motion.a>
@@ -306,7 +306,7 @@ export default function Menu() {
                   duration: 0.6,
                 }}
                 href="#contato"
-                className="hover:bg-gray-200 rounded-lg px-3 py-1 hover:text-black font-bold cursor-pointer"
+                className="hover:bg-gray-200 rounded-lg px-3 py-1 light:hover:bg-neutral-600 light:hover:text-white hover:text-black font-bold cursor-pointer"
               >
                 Contato
               </motion.a>

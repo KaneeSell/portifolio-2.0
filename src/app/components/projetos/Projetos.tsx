@@ -65,11 +65,11 @@ export default function Projetos() {
         border-1 rounded-2xl p-3
         `}
           >
-            <span className="text-white">{projeto.nome}</span>
+            <span>{projeto.nome}</span>
             <figure className="relative h-full lg:h-50">
               <div
                 className={`
-                absolute flex w-full justify-evenly items-center
+                absolute flex w-full justify-evenly items-center light:text-white
                 text-sm lg:text-base top-2 text-nowrap flex-wrap gap-1
                 `}
               >
@@ -124,11 +124,11 @@ export default function Projetos() {
                 </Fragment>
               )}
             </figure>
-            <span className="text-base md:text:lg h-30 text-white overflow-y-auto">
+            <span className="text-base md:text:lg h-full text-gray-300 light:text-gray-700 overflow-y-auto">
               {projeto.descricao}
             </span>
             <hr />
-            <span className="flex flex-col gap-1 text-lg lg:text-xl justify-evenly">
+            <span className="flex flex-col gap-1 text-white text-lg lg:text-xl justify-evenly">
               {projeto.link && (
                 <a
                   href={projeto.link}

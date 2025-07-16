@@ -65,7 +65,7 @@ export default function SobreMim() {
               ease: "easeOut",
               duration: 0.4,
             }}
-          className="text-2xl md:text-4xl font-serif font-semibold text-white">
+          className="text-2xl md:text-4xl font-serif font-semibold">
             Tecnologias que uso frequentemente
           </motion.h3>
           <motion.p
@@ -84,7 +84,7 @@ export default function SobreMim() {
               ease: "easeOut",
               duration: 0.6,
             }}
-          className="text-sm md:text-base text-gray-300">
+          className="text-sm md:text-base text-gray-300 light:text-gray-700">
             Uso tecnologias focadas para entregar conteúdos incríveis e com alto
             desempenho.
           </motion.p>
