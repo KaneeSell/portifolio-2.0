@@ -25,7 +25,7 @@ export const projetoDados: projetoDadosInterface = {
       descricao:
         "Aplicação simples e funcional de autenticação de usuários utilizando Next.js, validação de token JWT e controle de acesso via API. Ideal para projetos que exigem login seguro e rápido.",
       link: "https://kaneesell-login-next.vercel.app",
-      repo: "https://github.com/KaneeSell/empresas-react",
+      repo: "https://github.com/KaneeSell/Login-Next",
       status: "Concluido",
       versao: "MVP",
       imagemCaminho: ["https://i.imgur.com/vUD7fEv.png"],
