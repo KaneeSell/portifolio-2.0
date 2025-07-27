@@ -20,6 +20,15 @@ interface projetoDadosInterface {
 export const projetoDados: projetoDadosInterface = {
   projetos: [
     {
+      nome: "Login Next",
+      descricao:
+        "Aplicação simples e funcional de autenticação de usuários utilizando Next.js, validação de token JWT e controle de acesso via API. Ideal para projetos que exigem login seguro e rápido.",
+      link: "https://kaneesell-login-next.vercel.app",
+      repo: "https://github.com/KaneeSell/empresas-react",
+      status: "Concluido",
+      versao: "MVP",
+      imagemCaminho: ["https://i.imgur.com/vUD7fEv.png"],
+    },{
       nome: "Empresas-React",
       descricao:
         "Este é um projeto desenvolvido em React utilizando Bootstrap, Vite, ESLint e TypeScript. O projeto conta com um sistema simples de cadastro de empresas e uma tela de planilhas para download.",
