@@ -3,6 +3,7 @@ import ImgAgendaProMaster from '@/app/assets/img/AgendaProMaster.png'
 import ImgCadastrodeUsuario from '@/app/assets/img/Projeto Cadastro de Usuario.png'
 import Imgagenda2 from '@/app/assets/img/agenda2.0.png'
 import ImgERPLite from '@/app/assets/img/ERP Lite.png'
+import ImgLoginNext from '@/app/assets/img/Login Next.png'
 import { StaticImageData } from 'next/image';
 
 interface projetoDadosInterface {
@@ -28,6 +29,7 @@ export const projetoDados: projetoDadosInterface = {
       status: "Concluido",
       versao: "MVP",
       imagemCaminho: ["https://i.imgur.com/vUD7fEv.png"],
+      imagem: ImgLoginNext
     },{
       nome: "Empresas-React",
       descricao:
