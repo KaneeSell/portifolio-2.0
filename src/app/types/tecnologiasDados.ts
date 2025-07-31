@@ -119,7 +119,6 @@ export const backEnd = {
       nome: "PostgreSQL ",
       descricao: "Banco relacional avançado.",
       icon: "devicon-postgresql-plain",
-      estudando: true,
     },
   ],
 };
