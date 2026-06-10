@@ -1,7 +1,7 @@
 "use client";
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
-import logo from "../../favicon.ico";
+import logo from "@/app/favicon.ico";
 import { useState } from "react";
 import { FaRegUser } from "react-icons/fa";
 import { IoFolderOpenOutline, IoHomeOutline } from "react-icons/io5";
@@ -237,7 +237,7 @@ export default function Menu() {
               className="absolute right-[-10] top-[-10] bg-gray-700 light:bg-neutral-400 rounded-2xl py-2 px-3 pt-10 flex flex-col gap-2 text-nowrap"
             >
               <span className="h-7 w-7 cursor-pointer absolute right-2.5 top-1.5 z-15" />
-              <AnimatePresence mode='wait'>
+              <AnimatePresence mode='sync'>
               <motion.a
                key={1}
                 initial={{

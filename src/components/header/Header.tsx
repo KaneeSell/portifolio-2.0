@@ -1,5 +1,5 @@
 "use client";
-import perfil from "@/app/assets/img/perfil.png";
+import perfil from "@/assets/img/perfil.png";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { MdOutlineSimCardDownload, MdSimCardDownload } from "react-icons/md";

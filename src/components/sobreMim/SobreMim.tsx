@@ -1,11 +1,8 @@
 "use client";
 import Article from "../Article";
 import {
-  backEnd,
-  estilizacao,
-  framework,
-  linguagem,
-} from "@/app/types/tecnologiasDados";
+  todasTecnologias
+} from "@/data/tecnologiasDados";
 import TecnologiasUsadas from "./TecnologiasUsadas";
 import { Fragment } from "react";
 import { motion } from "motion/react";
@@ -28,7 +25,7 @@ export default function SobreMim() {
     <Fragment>
       <Article id="sobreMim" titulo="Sobre Mim">
         <p>
-          Olá! Meu nome é Daniel H. Sell e meu nickname é Kane&apos;e Sell,
+          Olá! Meu nome é Daniel Henrique Sell(Kane&apos;e Sell),
           tenho {idadeAtual()} e moro em Jaraguá do Sul.
         </p>
         <p>
@@ -41,6 +38,27 @@ export default function SobreMim() {
           SENAI-SC, mas optei por interrompê-lo em 2024 para focar em cursos
           mais diretos, que oferecem um aprendizado mais específico e prático do
           que os cursos técnicos e faculdades atuais.
+        </p>
+        <p>
+          Em Inicio de 2025 Finalizei o curso de Desenvolvimento Web Full Stack
+          da Udemy "Desenvolvimento Web Completo 2025 - 20 Cursos + 20 Projetos"
+          do professor "Leonardo Moura", onde aprendi a desenvolver aplicações
+          web utilizando as tecnologias mais atuais, como React, Next.js,
+          Node.js, Express, MongoDB, postgres, entre outras.
+        </p>
+        <p>
+          Em Novembro de 2025, abri MEI e iniciei a trabalhar como freelancer na
+          Delly's, atuei como desenvolvedor front-end. Responsabilidades
+          incluíram Trabalhar com Next, autenticação de usuários com Authjs,
+          integração de APIs, desenvolvimento de interfaces responsivas e
+          otimização de desempenho, componentes SSR e CSR, criação de server
+          actions e APIs, e colaboração em equipe, controle git e versionamento
+          de código, Azure, entre outras tecnologias.
+        </p>
+        <p>
+          Agosto de 2025, iniciei faculdade na Universidade Católica de Santa
+          Catarina no curso Bacharelado em Engenharia de Software, mas estou
+          visando faculdade EAD para maior flexibilidade de horários.
         </p>
         <p>
           Estou pronto para agregar minha experiência e conhecimento em Hardware
@@ -56,7 +74,8 @@ export default function SobreMim() {
             }}
             whileInView={{
               y: 0,
-              opacity: 1, transition: {ease: 'easeOut', duration: 0.6, times:[0.4]},
+              opacity: 1,
+              transition: { ease: "easeOut", duration: 0.6, times: [0.4] },
             }}
             viewport={{
               once: true,
@@ -65,7 +84,8 @@ export default function SobreMim() {
               ease: "easeOut",
               duration: 0.4,
             }}
-          className="text-2xl md:text-4xl font-serif font-semibold">
+            className="text-2xl md:text-4xl font-serif font-semibold"
+          >
             Tecnologias que uso frequentemente
           </motion.h3>
           <motion.p
@@ -75,7 +95,8 @@ export default function SobreMim() {
             }}
             whileInView={{
               y: 0,
-              opacity: 1, transition: {ease: 'easeOut', duration: 0.6, times:[0.4]},
+              opacity: 1,
+              transition: { ease: "easeOut", duration: 0.6, times: [0.4] },
             }}
             viewport={{
               once: true,
@@ -84,14 +105,15 @@ export default function SobreMim() {
               ease: "easeOut",
               duration: 0.6,
             }}
-          className="text-sm md:text-base text-gray-300 light:text-gray-700">
+            className="text-sm md:text-base text-gray-300 light:text-gray-700"
+          >
             Uso tecnologias focadas para entregar conteúdos incríveis e com alto
             desempenho.
           </motion.p>
         </span>
       </article>
       <TecnologiasUsadas
-        tecnologiasDados={[linguagem, framework, estilizacao, backEnd]}
+        tecnologiasDados={todasTecnologias}
       />
     </Fragment>
   );

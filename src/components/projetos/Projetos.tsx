@@ -1,5 +1,5 @@
 "use client";
-import { projetoDados } from "@/app/types/projetoDados";
+import { projetoDados } from "@/data/projetoData";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { Fragment, useState } from "react";

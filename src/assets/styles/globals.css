@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "yet-another-react-lightbox/styles.css";
+@import "devicon/devicon.min.css";
 
 html{
   scroll-behavior: smooth;

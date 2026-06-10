@@ -9,9 +9,11 @@ function gerarLinkWhatsApp(mensagem: string): string {
   const mensagemCodificada = encodeURIComponent(mensagem.trim());
   return `https://wa.me/${numero}?text=${mensagemCodificada}`;
 }
+
 interface BtnWhatsappProps {
   className: string;
 }
+
 export function BtnWhatsapp(props: BtnWhatsappProps) {
   return (
     <motion.a
@@ -106,7 +108,9 @@ export default function Contato() {
             duration: 0.4
           }}
                 rel="noopener noreferrer"
-                href=""
+                href={gerarLinkWhatsApp(
+                  "Olá! Vim pelo seu portifólio, e gostaria de tirar uma duvida."
+                )}
                 className="flex items-center gap-1 bg-[#25D366] px-2 py-0.5 rounded-2xl 
           border-1 border-gray-500 hover:brightness-85"
                 target="_blank"
@@ -131,7 +135,7 @@ export default function Contato() {
             duration: 0.6
           }}
                 rel="noopener noreferrer"
-                href=""
+                href="https://www.linkedin.com/in/kaneesell"
                 className="flex items-center gap-1 bg-[#0A66C2] px-2 py-0.5 rounded-2xl 
           border-1 border-gray-500 hover:brightness-85"
                 target="_blank"
@@ -159,7 +163,7 @@ export default function Contato() {
             duration: 0.6
           }}
                 rel="noopener noreferrer"
-                href=""
+                href="https://github.com/KaneeSell"
                 className="flex items-center gap-1 bg-[#181717] px-2 py-0.5 rounded-2xl 
           border-1 border-gray-500 hover:brightness-85"
                 target="_blank"
@@ -185,7 +189,7 @@ export default function Contato() {
             duration: 0.6
           }}
                 rel="noopener noreferrer"
-                href=""
+                href="mailto:kanee.sell@gmail.com"
                 className="flex items-center gap-1 bg-[#D93025] px-2 py-0.5 rounded-2xl 
           border-1 border-gray-500 hover:brightness-85"
                 target="_blank"
@@ -197,32 +201,6 @@ export default function Contato() {
           </span>
         </span>
       </motion.div>
-      <motion.a
-          initial={{
-            opacity: 0,
-            y: 100
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0
-          }} 
-          viewport={{
-            once: true
-          }}
-          transition={{
-            times: [0.4],
-            ease: 'easeOut',
-            duration: 0.6
-          }}
-        target="_blank"
-        rel="noopener noreferrer"
-        href={gerarLinkWhatsApp(
-          "Olá! Vim pelo seu portifólio, e gostaria de tirar uma duvida."
-        )}
-        className="flex text-white md:hidden fixed bottom-20 right-5 bg-green-400 rounded-full z-2"
-      >
-        <SiWhatsapp size={"40px"} className="cursor-pointer" />
-      </motion.a>
     </Fragment>
   );
 }

@@ -85,7 +85,7 @@ export default function Footer() {
           </span>
           <span className="flex flex-col sm:flex gap-1 sm:text-sm text-nowrap items-center w-1/2 justify-center leading-3">
             <span className="flex gap-1 text-base sm:text-sm text-nowrap">
-              <p>© 2025</p>
+              <p>© {new Date().getFullYear()}</p>
               <p className="font-semibold">Kane&apos;e Sell</p>
             </span>
             <p>Todos os direitos reservados.</p>
