@@ -377,4 +377,4 @@ export const todasTecnologias = [
   qualidade,
   uiux,
   ferramentas,
-] as const satisfies readonly TecnologiaTypes[];
+] as const satisfies TecnologiaTypes[];

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "@/assets/styles/globals.css";
 import "devicon/devicon.min.css";
+import ContextProviders from '@/components/context/ContextProviders';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +31,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-y-hidden`}
       >
+        <ContextProviders>
         {children}
+        </ContextProviders>
         <SpeedInsights />
       </body>
     </html>

@@ -2,19 +2,10 @@
 import { motion } from "motion/react";
 import ContainerMiniatura from "../ContainerMiniatura";
 import { Fragment, useState } from "react";
+import { TecnologiaTypes } from "@/types/tecnologiasTypes";
 
 interface TecnologiasUsadasProps {
-  tecnologiasDados: {
-    nome: string;
-    itens: {
-      nome: string;
-      descricao: string;
-      icon: string;
-      estudando?: boolean;
-      nivel: string;
-      progress: number;
-    }[];
-  }[];
+  tecnologiasDados: TecnologiaTypes[];
 }
 export default function TecnologiasUsadas(props: TecnologiasUsadasProps) {
   const [isVisible, setIsVisible] = useState(false);

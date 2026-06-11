@@ -1,5 +1,6 @@
 "use client";
 import { projetoDados } from "@/data/projetoData";
+import { useOpenProject } from "@/store/openProject";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { Fragment, useState } from "react";
@@ -12,6 +13,9 @@ export default function Projetos() {
   }
   const defaultImgOpen: imgOpenInterface = { key: 0, open: false };
   const [imgOpen, setImgOpen] = useState<imgOpenInterface>(defaultImgOpen);
+  const project = useOpenProject((state) => state.project)
+  const setProject = useOpenProject((state) => state.setProject)
+
   return (
     <div
       id="projetos"
@@ -41,7 +45,7 @@ export default function Projetos() {
         Projetos
       </motion.h2>
       <div className="flex w-full gap-5 flex-wrap justify-center items-center">
-        {projetoDados.projetos.map((projeto, index) => (
+        {projetoDados.map((projeto, index) => (
           <motion.span
             initial={{
               opacity: 0,
@@ -61,9 +65,9 @@ export default function Projetos() {
             }}
             key={index}
             className={`
-        text-xl md:text-2xl flex flex-col gap-2 w-full sm:w-70 lg:w-100 h-full sm:h-100 lg:h-110
-        border-1 rounded-2xl p-3
-        `}
+              text-xl md:text-2xl flex flex-col gap-2 w-full sm:w-70 lg:w-100 h-full sm:h-100 lg:h-110
+              border-1 rounded-2xl p-3 paper
+            `}
           >
             <span>{projeto.nome}</span>
             <figure className="relative h-full lg:h-50">
@@ -76,21 +80,23 @@ export default function Projetos() {
                 <span
                   className={`
                     px-2 rounded-2xl
-                    ${projeto.status === "Concluido" && "bg-green-500"}
-                    ${
-                      projeto.status === "Em Desenvolvimento" && "bg-yellow-500"
-                    }
-                    `}
+                    ${projeto.status === "Descontinuado" && "bg-red-500"}
+                    ${projeto.status === "Planejamento" && "bg-blue-500"}
+                    ${projeto.status === "Concluido" && "bg-emerald-500"}
+                    ${projeto.status === "Em Desenvolvimento" && "bg-yellow-500"}
+                    ${projeto.status === "MVP" && "bg-purple-500"}
+                  `}
                 >
                   {projeto.status}
                 </span>
                 <span
                   className={`
                     px-2 rounded-2xl
-                    ${projeto.versao === "Protótipo" && "bg-gray-500"}
+                    ${projeto.versao === "Planejamento" && "bg-slate-500"}
+                    ${projeto.versao === "Protótipo" && "bg-orange-500"}
                     ${projeto.versao === "MVP" && "bg-blue-500"}
-                    ${projeto.versao === "FullClient" && "bg-purple-500"}
-                    `}
+                    ${projeto.versao === "Produção" && "bg-emerald-500"}
+                  `}
                 >
                   {projeto.versao}
                 </span>
@@ -128,25 +134,13 @@ export default function Projetos() {
               {projeto.descricao}
             </span>
             <hr />
-            <span className="flex flex-col gap-1 text-white text-lg lg:text-xl justify-evenly">
-              {projeto.link && (
-                <a
-                  href={projeto.link}
-                  target="_blank"
-                  className="bg-sky-500 px-2 py-0.5 hover:bg-sky-600"
-                  rel="noopener noreferrer"
-                >
-                  Link do Projeto
-                </a>
-              )}
-              <a
-                href={projeto.repo}
-                target="_blank"
-                className="bg-green-500 px-2 py-0.5 hover:bg-green-600"
-                rel="noopener noreferrer"
+            <span className="flex w-full flex-col gap-1 text-white text-lg lg:text-xl text-center justify-center">
+              <button
+                onClick={() => setProject(projeto)}
+                className="bg-sky-500 px-2 py-0.5 hover:bg-sky-600 rounded-md hover:cursor-pointer"
               >
-                Repo
-              </a>
+                Detalhes
+              </button>
             </span>
           </motion.span>
         ))}
