@@ -113,7 +113,7 @@ export default function Projetos() {
           Projetos
         </motion.h2>
         <motion.button
-          className="rounded-lg bg-blue-700 hover:bg-blue-600 text-lg py-2 px-4 flex items-center justify-center gap-2"
+          className="rounded-lg bg-blue-700 hover:bg-blue-600 text-lg py-2 px-4 flex items-center justify-center gap-2 cursor-pointer"
           onClick={() => setShowFilters(!showFilters)}
         >
           <motion.span

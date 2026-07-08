@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import ContainerMiniatura from "../ContainerMiniatura";
 import { Fragment, useState } from "react";
 import { TecnologiaTypes } from "@/types/tecnologiasTypes";
@@ -20,8 +20,8 @@ export default function TecnologiasUsadas(props: TecnologiasUsadasProps) {
           height: isVisible ? "auto" : 500,
         }}
         transition={{
-          duration: 3,
-          ease: "easeInOut",
+            duration: 3,
+            ease: "easeInOut",
         }}
         className={`
         flex flex-col justify-start items-center gap-5 pb-20
@@ -45,7 +45,7 @@ export default function TecnologiasUsadas(props: TecnologiasUsadasProps) {
               }}
               transition={{
                 ease: "easeInOut",
-                duration: 0.4,
+                duration: 0.2,
               }}
               className="text-2xl md:text-4xl font-mono font-bold"
             >
@@ -64,31 +64,24 @@ export default function TecnologiasUsadas(props: TecnologiasUsadasProps) {
                 />
               ))}
             </div>
-            <motion.div
-              animate={{
-                opacity: isVisible ? 0 : 1,
-              }}
-              transition={{
-                ease: "easeInOut",
-                duration: 0.4,
-              }}
-              className={`
-                absolute bottom-0 left-0 w-full h-50
-                pointer-events-none bg-gradient-to-t
-                from-zinc-950/30 via-zinc-950/10
-                light:from-neutral-200/30 
-                light:via-neutral-200/10
-                to-transparent flex justify-center items-end
-              `}
-            />
           </Fragment>
         ))}
+        <div
+          className={`${isVisible && "hidden"}
+            absolute top-95 left-0 w-full h-50
+            pointer-events-none bg-gradient-to-t
+            from-zinc-950/30 via-black/100
+            light:from-neutral-200/30 
+            light:via-neutral-200/10 z-10
+            to-transparent flex justify-center items-end
+          `}
+        />
         <button
           onClick={() => setIsVisible(!isVisible)}
           className={`
-                mt-5 px-4 py-2 bg-blue-700 text-white ${!isVisible && `animate-pulse`} 
+                mt-5 px-4 py-2 bg-blue-700 text-white
                 hover:animate-none hover:cursor-pointer rounded-md hover:bg-blue-600 
-                transition-colors z-1 absolute bottom-2
+                transition-colors z-10 absolute bottom-2
               `}
         >
           {isVisible ? "Ver Menos" : "Ver Mais"}
