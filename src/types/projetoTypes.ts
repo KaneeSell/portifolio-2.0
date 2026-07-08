@@ -7,11 +7,22 @@ export type NomeTecnologia =
 export type ProjetoStatus =
   | "Planejamento"
   | "Em Desenvolvimento"
-  | "MVP"
   | "Concluido"
   | "Descontinuado";
+export const todosProjetoStatus: ProjetoStatus[] = [
+  "Planejamento",
+  "Em Desenvolvimento",
+  "Concluido",
+  "Descontinuado"
+]
 
 export type ProjetoVersao = "Planejamento" | "Protótipo" | "MVP" | "Produção";
+export const todosProjetoVersao = [
+  "Planejamento",
+  "Protótipo",
+  "MVP",
+  "Produção"
+]
 
 export type ProjetoTipo =
   | "ERP"

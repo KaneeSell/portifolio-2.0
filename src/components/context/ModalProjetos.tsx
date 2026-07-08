@@ -23,7 +23,7 @@ export default function ModalProjetos() {
     }, [project])
 
     return (
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
             {project !== null && (
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}

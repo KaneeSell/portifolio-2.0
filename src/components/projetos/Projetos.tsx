@@ -6,10 +6,13 @@ import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { Fragment, useEffect, useState } from "react";
-import { FaExpand } from "react-icons/fa";
+import { FaCheckCircle, FaExpand } from "react-icons/fa";
 import Lightbox from "yet-another-react-lightbox";
-import { NomeTecnologia, ProjetoTypes } from "@/types/projetoTypes";
+import { NomeTecnologia, ProjetoStatus, ProjetoTypes, ProjetoVersao, todosProjetoStatus, todosProjetoVersao } from "@/types/projetoTypes";
 import { todasTecnologias } from "@/data/tecnologiasDados";
+import { MdFilterAlt, MdFilterAltOff } from "react-icons/md";
+import { FaCircleXmark } from "react-icons/fa6";
+import CustomCheckBox from "../button/CustomCheckBox";
 
 export default function Projetos() {
   interface imgOpenInterface {
@@ -17,23 +20,59 @@ export default function Projetos() {
     open: boolean;
   }
   const defaultImgOpen: imgOpenInterface = { key: 0, open: false };
-  const [filterTech, setFilterTech] = useState<NomeTecnologia | "all">("all")
+  const [titleFilter, setTitleFilter] = useState<string>("")
+  const [techFilter, setTechFilter] = useState<NomeTecnologia | "all">("all")
+  const [statusFilter, setStatusFilter] = useState<ProjetoStatus | "all">("all")
+  const [versionFilter, setVersionFilter] = useState<ProjetoVersao | "all">("all")
+  const [repoFilter, setRepoFilter] = useState<boolean>(false)
+  const [demoFilter, setDemoFilter] = useState<boolean>(false)
+  const [showFilters, setShowFilters] = useState<boolean>(false)
   const [project, setProject] = useState<ProjetoTypes[]>(projetoDados)
   const [imgOpen, setImgOpen] = useState<imgOpenInterface>(defaultImgOpen);
   const setOpenProject = useOpenProject((state) => state.setProject)
   const { setLock } = useLockBodyScroll(false)
 
   useEffect(() => {
-    if (filterTech === "all") {
-      setProject(projetoDados);
-      return;
+    let filtered = projetoDados;
+
+    if (titleFilter !== "all") {
+      filtered = filtered.filter((proj) =>
+        proj.nome?.toLowerCase().includes(titleFilter.toLowerCase())
+      );
     }
-    setProject(
-      projetoDados.filter((proj) =>
-        proj.tecnologias?.includes(filterTech)
-      )
-    );
-  }, [filterTech])
+
+    if (techFilter !== "all") {
+      filtered = filtered.filter((proj) =>
+        proj.tecnologias?.includes(techFilter)
+      );
+    }
+
+    if (statusFilter !== "all") {
+      filtered = filtered.filter((proj) =>
+        proj.status === statusFilter
+      );
+    }
+
+    if (versionFilter !== "all") {
+      filtered = filtered.filter((proj) =>
+        proj.versao === versionFilter
+      );
+    }
+
+    if (repoFilter === true) {
+      filtered = filtered.filter((proj) =>
+        proj.repo !== undefined
+      );
+    }
+
+    if (demoFilter === true) {
+      filtered = filtered.filter((proj) =>
+        proj.link !== undefined
+      );
+    }
+
+    setProject(filtered);
+  }, [techFilter, statusFilter, versionFilter, titleFilter, repoFilter, demoFilter]);
 
   useEffect(() => {
     if (imgOpen.open !== defaultImgOpen.open) {
@@ -49,46 +88,164 @@ export default function Projetos() {
       className={`
         scroll-m-15 mt-10 px-5 flex flex-col gap-10 w-full
         text-3xl md:text-5xl font-serif font-extrabold
+        items-center
         `}
     >
-      <motion.h2
-        initial={{
-          opacity: 0,
-          x: -150,
-        }}
-        whileInView={{
-          opacity: 1,
-          transition: { ease: "easeOut", duration: 0.6, times: [0.4] },
-          x: 0,
-        }}
-        viewport={{
-          once: true,
-        }}
-        transition={{
-          ease: "easeOut",
-          duration: 0.4,
-        }}
-      >
-        Projetos
-      </motion.h2>
-      <span className="text-xl">
-        <label htmlFor="tecnology">Tecnologias:</label>
-        <select 
-        className="border-1 rounded-full w-30 text-center"
-        name="tecnology"
-        id="tecnology" 
-        value={filterTech} 
-        onChange={(e) => {
-          if (e.target.value) setFilterTech(e.target.value as NomeTecnologia | "all")
-        }}>
-          <option value="all">Todos</option>
-          {todasTecnologias.filter(tech => tech.nome !== "Arquitetura & Produto").map(tech => tech.itens.map((item) =>
-            <option value={item.nome}>{item.nome}</option>
-          ))}
-        </select>
-      </span>
+      <div className="flex items-center justify-center flex-col gap-3">
+        <motion.h2
+          initial={{
+            opacity: 0,
+            x: -150,
+          }}
+          whileInView={{
+            opacity: 1,
+            transition: { ease: "easeOut", duration: 0.6, times: [0.4] },
+            x: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            ease: "easeOut",
+            duration: 0.4,
+          }}
+        >
+          Projetos
+        </motion.h2>
+        <motion.button
+          className="rounded-lg bg-blue-700 hover:bg-blue-600 text-lg py-2 px-4 flex items-center justify-center gap-2"
+          onClick={() => setShowFilters(!showFilters)}
+        >
+          <motion.span
+            key={showFilters ? "hide" : "show"}
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 8 }}
+            transition={{ duration: 0.2 }}
+            className="flex items-center gap-2"
+          >
+            {showFilters ? "Ocultar Filtros" : "Ver Filtros"}
+            {showFilters ? <MdFilterAltOff /> : <MdFilterAlt />}
+          </motion.span>
+        </motion.button>
+      </div>
+      <AnimatePresence mode="wait">
+        {showFilters && (
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: -30,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              y: -30,
+            }}
+            viewport={{
+              once: true,
+            }}
+            transition={{
+              ease: "easeOut",
+              duration: 0.4,
+            }}
+            className={"text-lg font-normal font-sans flex items-center justify-center gap-5 flex-wrap"}>
+            <span className="text-xl flex gap-2 w-full justify-center">
+              <label htmlFor="title" className="font-bold">Titulo:</label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                className="rounded-full px-2 border"
+                placeholder="Buscar por titulo..."
+                value={titleFilter}
+                onChange={(e) => setTitleFilter(e.target.value as string)} />
+            </span>
+            <span className="text-xl flex gap-2">
+              <label htmlFor="tecnology" className="font-bold">Tecnologias:</label>
+              <select
+                className="border rounded-full w-30 text-center"
+                name="tecnology"
+                id="tecnology"
+                value={techFilter}
+                onChange={(e) => {
+                  if (e.target.value) setTechFilter(e.target.value as NomeTecnologia | "all")
+                }}>
+                <option value="all">Todos</option>
+                {todasTecnologias.filter(tech => tech.nome !== "Arquitetura & Produto").map(tech => tech.itens.map((item, index) =>
+                  <option value={item.nome} key={index}>{item.nome}</option>
+                ))}
+              </select>
+            </span>
+            <span className="text-xl flex gap-2">
+              <label htmlFor="status" className="font-bold">Status:</label>
+              <select
+                className="border rounded-full w-30 text-center"
+                name="status"
+                id="status"
+                value={statusFilter}
+                onChange={(e) => {
+                  if (e.target.value) setStatusFilter(e.target.value as ProjetoStatus | "all")
+                }}>
+                <option value="all">Todos</option>
+                {todosProjetoStatus.map((status, index) =>
+                  <option value={status} key={index}>{status}</option>
+                )}
+              </select>
+            </span>
+            <span className="text-xl flex gap-2">
+              <label htmlFor="version" className="font-bold">Versão:</label>
+              <select
+                className="border rounded-full w-30 text-center"
+                name="version"
+                id="version"
+                value={versionFilter}
+                onChange={(e) => {
+                  if (e.target.value) setVersionFilter(e.target.value as ProjetoVersao | "all")
+                }}>
+                <option value="all">Todos</option>
+                {todosProjetoVersao.map((version, index) =>
+                  <option value={version} key={index}>{version}</option>
+                )}
+              </select>
+            </span>
+            <div className="flex gap-5 w-full items-center justify-center flex-wrap">
+              <span
+                className="text-xl flex gap-2 items-center cursor-pointer"
+              >
+                <label htmlFor="repo" className="font-bold" onClick={() => setRepoFilter(!repoFilter)}>
+                  Somente com Repositório?
+                </label>
+                <input type="hidden" id="repo" name="repo" />
+                <CustomCheckBox checked={repoFilter} onClick={() => setRepoFilter(!repoFilter)} />
+              </span>
+              <span
+                className="text-xl flex gap-2 items-center cursor-pointer"
+              >
+                <label htmlFor="repo" className="font-bold" onClick={() => setDemoFilter(!demoFilter)}>
+                  Somente com Demonstração?
+                </label>
+                <input type="hidden" id="repo" name="repo" />
+                <CustomCheckBox checked={demoFilter} onClick={() => setDemoFilter(!demoFilter)} />
+              </span>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <div className="flex w-full gap-5 flex-wrap justify-center items-center">
-        <AnimatePresence>
+        <AnimatePresence mode="sync">
+          {project.length === 0 && (
+            <motion.span
+              initial={{ width: 0 }}
+              animate={{ width: project.length === 0 ? "fit-content" : 0 }}
+              transition={{ duration: 0.8, ease: "linear" }}
+              className="w-full overflow-hidden whitespace-nowrap font-normal text-2xl"
+            >
+              Nenhum resultado encontrado...
+            </motion.span>
+          )}
           {project.map((projeto, index) => (
             <motion.span
               initial={{
@@ -114,7 +271,7 @@ export default function Projetos() {
               key={index}
               className={`
               text-xl md:text-2xl flex flex-col gap-2 w-full sm:w-70 lg:w-100 h-full sm:h-100 lg:h-120
-              border-1 rounded-2xl p-3 paper group
+              border rounded-2xl p-3 paper group
             `}
             >
               <span>{projeto.nome}</span>
@@ -132,7 +289,6 @@ export default function Projetos() {
                     ${projeto.status === "Planejamento" && "bg-blue-500"}
                     ${projeto.status === "Concluido" && "bg-emerald-500"}
                     ${projeto.status === "Em Desenvolvimento" && "bg-yellow-500"}
-                    ${projeto.status === "MVP" && "bg-purple-500"}
                   `}
                   >
                     {projeto.status}
@@ -192,7 +348,8 @@ export default function Projetos() {
                   <div className="text-sm flex flex-wrap gap-1">
                     Tecnologias:
                     {Array.isArray(projeto.tecnologias) && projeto.tecnologias?.map((tech, index) => (
-                      <span className="border-1 px-2 rounded-full ">
+                      <span className="border px-2 rounded-full "
+                        key={index}>
                         {tech}
                       </span>
                     ))}
