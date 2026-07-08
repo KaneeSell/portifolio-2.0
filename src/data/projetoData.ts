@@ -8,6 +8,7 @@ import { ProjetoTypes } from "@/types/projetoTypes";
 
 export const projetoDadosCopy: ProjetoTypes[] = [
   {
+    id: 1,
     nome: "Login Next",
     descricao:
       "Login Next é um sistema de autenticação com frontend em Next.js, usando React Hook Form e Zod para validações robustas, estilização com Tailwind CSS, e desenvolvimento tipado com TypeScript. A API local do Next.js gerencia a comunicação segura com o backend, protegendo variáveis sensíveis via .env. O backend foi desenvolvido em NestJS, utilizando Prisma ORM com banco PostgreSQL e validação com class-validator. O frontend está hospedado na Vercel, o backend na Render, e o banco de dados via Prisma Cloud.",
@@ -55,6 +56,7 @@ export const projetoDadosCopy: ProjetoTypes[] = [
       "Sistema de autenticação com Next.js, NestJS, Prisma e PostgreSQL, utilizando React Hook Form e Zod para validação robusta, e hospedagem na Vercel e Render.",
   },
   {
+    id: 2,
     nome: "Empresas-React",
     descricao:
       "Este é um projeto desenvolvido em React utilizando Bootstrap, Vite, ESLint e TypeScript. O projeto conta com um sistema simples de cadastro de empresas e uma tela de planilhas para download.",
@@ -66,6 +68,7 @@ export const projetoDadosCopy: ProjetoTypes[] = [
     imagem: ImgEmpresasReact,
   },
   {
+    id: 3,
     nome: "AgendaProMaster",
     descricao:
       "É uma página de estudos desenvolvida para simplificar a organização e otimizar o aprendizado. Com um design intuitivo e funcionalidades práticas, ela é a ferramenta ideal para estudantes que buscam eficiência e foco em suas rotinas.",
@@ -77,6 +80,7 @@ export const projetoDadosCopy: ProjetoTypes[] = [
     imagem: ImgAgendaProMaster,
   },
   {
+    id: 4,
     nome: "Agenda 2.0",
     descricao:
       "Agenda 2.0 Versão React + TailwindCSS da antiga AgendaProMaster(Bootstrap + HTML5 + CSS3)",
@@ -88,6 +92,7 @@ export const projetoDadosCopy: ProjetoTypes[] = [
     imagem: Imgagenda2,
   },
   {
+    id: 5,
     nome: "ERP-Lite",
     descricao:
       "É um sistema desktop desenvolvido com Electron, React, TypeScript, Bootstrap. O objetivo é facilitar a gestão de entrada e saída de produtos, controle de matéria-prima e geração de relatórios essenciais para a administração do negócio.",
@@ -99,6 +104,7 @@ export const projetoDadosCopy: ProjetoTypes[] = [
     imagem: ImgERPLite,
   },
   {
+    id: 6,
     nome: "Projeto-Cadastro-de-Usuario",
     descricao:
       "Projeto Cadastro de Usuário feito no curso de Desenvolvimento Web Moderno da C0D3R.",
@@ -112,6 +118,7 @@ export const projetoDadosCopy: ProjetoTypes[] = [
 
 export const projetoDados: ProjetoTypes[] = [
   {
+    id: 7,
     nome: "Login Next",
     descricao:
       "Login Next é um sistema de autenticação com frontend em Next.js, usando React Hook Form e Zod para validações robustas, estilização com Tailwind CSS, e desenvolvimento tipado com TypeScript. A API local do Next.js gerencia a comunicação segura com o backend, protegendo variáveis sensíveis via .env. O backend foi desenvolvido em NestJS, utilizando Prisma ORM com banco PostgreSQL e validação com class-validator. O frontend está hospedado na Vercel, o backend na Render, e o banco de dados via Prisma Cloud.",
@@ -124,6 +131,7 @@ export const projetoDados: ProjetoTypes[] = [
     
   },
   {
+    id: 8,
     nome: "Empresas-React",
     descricao:
       "Este é um projeto desenvolvido em React utilizando Bootstrap, Vite, ESLint e TypeScript. O projeto conta com um sistema simples de cadastro de empresas e uma tela de planilhas para download.",
@@ -135,6 +143,7 @@ export const projetoDados: ProjetoTypes[] = [
     imagem: ImgEmpresasReact,
   },
   {
+    id: 9,
     nome: "AgendaProMaster",
     descricao:
       "É uma página de estudos desenvolvida para simplificar a organização e otimizar o aprendizado. Com um design intuitivo e funcionalidades práticas, ela é a ferramenta ideal para estudantes que buscam eficiência e foco em suas rotinas.",
@@ -146,6 +155,7 @@ export const projetoDados: ProjetoTypes[] = [
     imagem: ImgAgendaProMaster,
   },
   {
+    id: 10,
     nome: "Agenda 2.0",
     descricao:
       "Agenda 2.0 Versão React + TailwindCSS da antiga AgendaProMaster(Bootstrap + HTML5 + CSS3)",
@@ -157,6 +167,7 @@ export const projetoDados: ProjetoTypes[] = [
     imagem: Imgagenda2,
   },
   {
+    id: 11,
     nome: "ERP-Lite",
     descricao:
       "É um sistema desktop desenvolvido com Electron, React, TypeScript, Bootstrap. O objetivo é facilitar a gestão de entrada e saída de produtos, controle de matéria-prima e geração de relatórios essenciais para a administração do negócio.",
@@ -168,6 +179,7 @@ export const projetoDados: ProjetoTypes[] = [
     imagem: ImgERPLite,
   },
   {
+    id: 12,
     nome: "Projeto-Cadastro-de-Usuario",
     descricao:
       "Projeto Cadastro de Usuário feito no curso de Desenvolvimento Web Moderno da C0D3R.",

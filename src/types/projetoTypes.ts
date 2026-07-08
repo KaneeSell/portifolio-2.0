@@ -24,6 +24,7 @@ export type ProjetoTipo =
   | "Outro";
 
 export type ProjetoTypes = {
+  id: number;
   nome: string;
   resumo?: string;
   descricao: string;

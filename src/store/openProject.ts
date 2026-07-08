@@ -1,5 +1,4 @@
 import { ProjetoTypes } from '@/types/projetoTypes'
-import { TecnologiaTypes } from '@/types/tecnologiasTypes'
 import { create } from 'zustand'
 
 type OpenProject = {

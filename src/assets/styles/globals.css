@@ -9,14 +9,14 @@ html {
 
 body {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow: hidden;
   font-family: Arial, Helvetica, sans-serif;
   margin: 0px;
   padding: 0px;
 }
 
 @utility modal {
-  @apply bg-gray-900 text-white rounded-none md:rounded-xl h-[100%] md:h-[80%] w-[100%] md:w-[80%] flex justify-start items-center py-3 px-5 overflow-y-auto overflow-x-hidden relative flex-col gap-2;
+  @apply bg-gray-900 text-white rounded-none md:rounded-xl h-[100%] md:h-[80%] w-[100%] md:w-[80%] lg:w-[50%] flex justify-start items-center py-3 px-5 overflow-y-auto overflow-x-hidden relative flex-col gap-2 border-2 border-gray-600;
 }
 
 @utility paper {
