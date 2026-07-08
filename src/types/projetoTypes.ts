@@ -26,7 +26,7 @@ export type ProjetoTipo =
 export type ProjetoTypes = {
   id: number;
   nome: string;
-  resumo?: string;
+  resumo: string;
   descricao: string;
   desafios?: string;
   solucoes?: string;
