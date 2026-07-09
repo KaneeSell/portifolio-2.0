@@ -7,6 +7,12 @@
   --background-light: lab(90.952% 0 -.0000119209);
 }
 
+body {
+  transition:
+    background-color .3s ease,
+    color .3s ease;
+}
+
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;

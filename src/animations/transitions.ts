@@ -10,7 +10,7 @@ export const slowTransition: ValueAnimationTransition = {
   ease: "easeInOut",
 };
 
-export const springTransition = {
+export const springTransition: ValueAnimationTransition = {
   type: "spring",
   stiffness: 250,
   damping: 20,
