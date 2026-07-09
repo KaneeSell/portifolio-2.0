@@ -11,7 +11,7 @@ import Lightbox from "yet-another-react-lightbox";
 import { NomeTecnologia, ProjetoStatus, ProjetoTypes, ProjetoVersao, todosProjetoStatus, todosProjetoVersao } from "@/types/projetoTypes";
 import { todasTecnologias } from "@/data/tecnologiasDados";
 import { MdFilterAlt, MdFilterAltOff } from "react-icons/md";
-import { FaCircleXmark } from "react-icons/fa6";
+import { FaCircleXmark, FaFilterCircleXmark } from "react-icons/fa6";
 import CustomCheckBox from "../button/CustomCheckBox";
 
 export default function Projetos() {
@@ -31,6 +31,16 @@ export default function Projetos() {
   const [imgOpen, setImgOpen] = useState<imgOpenInterface>(defaultImgOpen);
   const setOpenProject = useOpenProject((state) => state.setProject)
   const { setLock } = useLockBodyScroll(false)
+
+  const resetFilters = () => {
+    // setShowFilters(false)
+    setDemoFilter(false)
+    setRepoFilter(false)
+    setVersionFilter("all")
+    setStatusFilter("all")
+    setTechFilter("all")
+    setTitleFilter("")
+  }
 
   useEffect(() => {
     let filtered = projetoDados;
@@ -113,20 +123,22 @@ export default function Projetos() {
           Projetos
         </motion.h2>
         <motion.button
-          className="rounded-lg bg-blue-700 hover:bg-blue-600 text-lg py-2 px-4 flex items-center justify-center gap-2 cursor-pointer"
+          className="btn primary"
           onClick={() => setShowFilters(!showFilters)}
         >
-          <motion.span
-            key={showFilters ? "hide" : "show"}
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 8 }}
-            transition={{ duration: 0.2 }}
-            className="flex items-center gap-2"
-          >
-            {showFilters ? "Ocultar Filtros" : "Ver Filtros"}
-            {showFilters ? <MdFilterAltOff /> : <MdFilterAlt />}
-          </motion.span>
+          <div className="box">
+            <motion.span
+              key={showFilters ? "hide" : "show"}
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 8 }}
+              transition={{ duration: 0.2 }}
+              className="flex items-center gap-2"
+            >
+              {showFilters ? "Ocultar Filtros" : "Ver Filtros"}
+              {showFilters ? <MdFilterAltOff /> : <MdFilterAlt />}
+            </motion.span>
+          </div>
         </motion.button>
       </div>
       <AnimatePresence mode="wait">
@@ -152,17 +164,25 @@ export default function Projetos() {
               duration: 0.4,
             }}
             className={"text-lg font-normal font-sans flex items-center justify-center gap-5 flex-wrap"}>
-            <span className="text-xl flex gap-2 w-full justify-center">
-              <label htmlFor="title" className="font-bold">Titulo:</label>
-              <input
-                type="text"
-                id="title"
-                name="title"
-                className="rounded-full px-2 border"
-                placeholder="Buscar por titulo..."
-                value={titleFilter}
-                onChange={(e) => setTitleFilter(e.target.value as string)} />
-            </span>
+            <div className="flex flex-row-reverse flex-wrap gap-2 w-full justify-center items-center">
+              <button
+              onClick={resetFilters}
+                className="btn text-nowrap box warning!">
+                Resetar filtros
+                <FaFilterCircleXmark />
+              </button>
+              <span className="text-xl flex gap-2 justify-center">
+                <label htmlFor="title" className="font-bold">Titulo:</label>
+                <input
+                  type="text"
+                  id="title"
+                  name="title"
+                  className="rounded-full px-2 border"
+                  placeholder="Buscar por titulo..."
+                  value={titleFilter}
+                  onChange={(e) => setTitleFilter(e.target.value as string)} />
+              </span>
+            </div>
             <span className="text-xl flex gap-2">
               <label htmlFor="tecnology" className="font-bold">Tecnologias:</label>
               <select
@@ -340,13 +360,13 @@ export default function Projetos() {
               </figure>
               <span
                 onClick={() => console.log(projeto)}
-                className="text-base px-2 md:text:lg h-full text-gray-400 group-hover:text-white light:group-hover:text-black light:text-gray-700 overflow-y-auto">
+                className="text-base px-2 md:text:lg h-full text-sub overflow-y-auto">
                 {projeto.resumo}
               </span>
               <div>
                 {projeto.tecnologias && (
-                  <div className="text-sm flex flex-wrap gap-1">
-                    Tecnologias:
+                  <div className="text-sm flex flex-wrap gap-1 text-sub group-hover:text-default">
+                    Principais Tecnologias:
                     {Array.isArray(projeto.tecnologias) && projeto.tecnologias?.map((tech, index) => (
                       <span className="border px-2 rounded-full "
                         key={index}>

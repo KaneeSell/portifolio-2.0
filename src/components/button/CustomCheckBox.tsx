@@ -1,52 +1,78 @@
-import { motion } from "motion/react"
+import { defaultTransition } from "@/animations"
+import { AnimatePresence, motion, TargetAndTransition, ValueKeyframesDefinition } from "motion/react"
+import { Fragment, useEffect, useState } from "react"
 
-export default function CustomCheckBox({ checked, onClick }: { checked: boolean, onClick: () => void }) {
+export default function CustomCheckBox({
+    checked,
+    onClick,
+    variant = "transform"
+}: {
+    checked: boolean,
+    onClick: () => void,
+    variant?: "rotate" | "transform"
+}) {
+    const variantTransform = {
+        scale: checked ? 1 : 1,
+        backgroundColor: checked ? "#07fc03" : "#fc0303"
+    }
+    const variantRotate = {
+        scaleX: checked ? 1 : -1,
+        backgroundColor: checked ? "#07fc03" : "#fc0303"
+    }
+    const [variantState, setVariantState] = useState<TargetAndTransition>(variantTransform)
+
+    useEffect(() => {
+        switch (variant) {
+            case "rotate":
+                setVariantState(variantRotate);
+                break;
+            case "transform":
+                setVariantState(variantTransform);
+                break;
+            default:
+                setVariantState(variantTransform);
+        }
+    }, [variant, checked])
+
     return (
         <motion.div
-            animate={{
-                scale: checked ? 1 : -1,
-                backgroundColor: checked ? "green" : "red"
-            }}
+            animate={variantState}
             viewport={{
                 once: true,
             }}
-            transition={{
-                ease: "easeOut",
-                duration: 0.3,
-            }}
-            className="flex relative border hover:brightness-80 px-1 py-2.5 rounded-full"
+            transition={defaultTransition}
+            className="box relative border-2 hover:brightness-80 h-5 w-5 rounded-full"
             onClick={onClick}>
-            <motion.span
-                className="bg-white absolute rounded-full"
+            <motion.span className="bg-white rounded-full absolute"
                 animate={{
-                    width: checked ? 8 : 15,
-                    height: 2,
-                    rotate: checked ? 50 : 230,
-                    x: checked ? -0.5 : 0,
-                    y: checked ? 3.5 : 0
+                    width: checked? [0, 8] : [0, 13],
+                    height: 3,
+                    originX: 0.5,
+                    x: checked? -3 : 0,
+                    y: checked? 2.5 : 0,
+                    rotate: 45,
+                    scaleX: variant === "rotate"? [0, 1] : 1
                 }}
-                viewport={{
-                    once: true,
-                }}
+                viewport={{ once: true }}
                 transition={{
-                    ease: "easeOut",
-                    duration: 0.3,
+                    duration: 0.8,
+                    ease: "easeInOut",
                 }}
             />
-            <motion.span
-                className="bg-white rounded-full"
+            <motion.span className="bg-white rounded-full absolute"
                 animate={{
-                    width: checked ? 15 : 15,
-                    height: 2,
-                    rotate: checked ? -50 : -230,
-                    x: checked ? 3 : 0
+                    width: checked? [0, 12] : [0, 13],
+                    originX: 0.5,
+                    x: checked? 2 : 0,
+                    y: checked? 1 : 0,
+                    rotate: -45,
+                    height: 3,
+                    scaleX: variant === "rotate"? [0, 1] : 1
                 }}
-                viewport={{
-                    once: true,
-                }}
+                viewport={{ once: true }}
                 transition={{
-                    ease: "easeOut",
-                    duration: 0.3,
+                    duration: 0.8,
+                    ease: "easeInOut",
                 }}
             />
         </motion.div>

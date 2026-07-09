@@ -65,56 +65,6 @@ export default function SobreMim() {
           e desenvolvimento de Software a um time.
         </p>
       </Article>
-      <article className="flex flex-col justify-center items-center gap-10 mt-10 px-5 md:max-w-2/3">
-        <span className="text-start">
-          <motion.h3
-            initial={{
-              y: 20,
-              opacity: 0,
-            }}
-            whileInView={{
-              y: 0,
-              opacity: 1,
-              transition: { ease: "easeOut", duration: 0.6, times: [0.4] },
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              ease: "easeOut",
-              duration: 0.4,
-            }}
-            className="text-2xl md:text-4xl font-serif font-semibold"
-          >
-            Tecnologias que uso frequentemente
-          </motion.h3>
-          <motion.p
-            initial={{
-              y: -20,
-              opacity: 0,
-            }}
-            whileInView={{
-              y: 0,
-              opacity: 1,
-              transition: { ease: "easeOut", duration: 0.6, times: [0.4] },
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              ease: "easeOut",
-              duration: 0.6,
-            }}
-            className="text-sm md:text-base text-gray-300 light:text-gray-700"
-          >
-            Uso tecnologias focadas para entregar conteúdos incríveis e com alto
-            desempenho.
-          </motion.p>
-        </span>
-      </article>
-      <TecnologiasUsadas
-        tecnologiasDados={todasTecnologias}
-      />
     </Fragment>
   );
 }

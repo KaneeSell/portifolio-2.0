@@ -29,8 +29,8 @@ export default function Footer() {
         `}
     >
       <span className="w-full h-[0.06em] bg-neutral-400 light:bg-neutral-700" />
-      <span className="absolute top-4 bg-black light:bg-neutral-200 border-1 border-b-0 rounded-3xl p-5" />
-      <span className="absolute top-10 bg-black light:bg-neutral-200 p-5" />
+      <span className="absolute top-4 bg-(--background-dark) light:bg-(--background-light) border border-b-0 rounded-3xl p-5" />
+      <span className="absolute top-10 bg-(--background-dark) light:bg-neutral-200 p-5" />
       <a href="#inicio" className="absolute top-4 cursor-pointer">
         <IoIosArrowUp size={"35px"} />
       </a>
