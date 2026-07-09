@@ -8,6 +8,7 @@ import { IoFolderOpenOutline, IoHomeOutline } from "react-icons/io5";
 import { TiContacts } from "react-icons/ti";
 import { ThemeBtnReduzido } from "../ThemeButton";
 import { BtnWhatsapp } from "../Contato";
+import { FaCode } from "react-icons/fa6";
 
 export default function Menu() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -52,6 +53,12 @@ export default function Menu() {
             className="py-4 w-1/4 justify-center flex light:hover:bg-neutral-600 light:hover:text-white hover:bg-gray-200 hover:text-black"
           >
             <FaRegUser size={"20px"} className="cursor-pointer " />
+          </a>
+          <a
+            href="#tecnologias"
+            className="py-4 w-1/4 justify-center flex light:hover:bg-neutral-600 light:hover:text-white hover:bg-gray-200 hover:text-black"
+          >
+            <FaCode size={"20px"} className="cursor-pointer " />
           </a>
           <a
             href="#projetos"
@@ -287,13 +294,31 @@ export default function Menu() {
                   ease: "easeOut",
                   duration: 0.6,
                 }}
+                href="#tecnologias"
+                className="hover:bg-gray-200 rounded-lg px-3 py-1 light:hover:bg-neutral-600 light:hover:text-white hover:text-black font-bold cursor-pointer"
+              >
+                Tecnologias
+              </motion.a>
+              <motion.a
+               key={4}
+                initial={{
+                  opacity: 0,
+                }}
+                animate={{
+                  opacity: menuOpen ? 1 : 0,
+                }}
+                transition={{
+                  times: [0.5],
+                  ease: "easeOut",
+                  duration: 0.6,
+                }}
                 href="#projetos"
                 className="hover:bg-gray-200 rounded-lg px-3 py-1 light:hover:bg-neutral-600 light:hover:text-white hover:text-black font-bold cursor-pointer"
               >
                 Projetos
               </motion.a>
               <motion.a
-               key={4}
+               key={5}
                 initial={{
                   opacity: 0,
                 }}

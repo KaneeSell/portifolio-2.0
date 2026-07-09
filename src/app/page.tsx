@@ -5,7 +5,7 @@ import Contato from "@/components/Contato";
 import LayoutPaiTema from "@/components/LayoutPaiTema";
 import Menu from "@/components/menu/Menu";
 import SobreMim from "@/components/sobreMim/SobreMim";
-import TecnologiasUsadas from "@/components/sobreMim/TecnologiasUsadas";
+import Tecnologias from "@/components/tecnologias/Tecnologias";
 
 export default function Inicio() {
   return (
@@ -13,7 +13,7 @@ export default function Inicio() {
       <Menu />
       <Header />
       <SobreMim />
-      <TecnologiasUsadas/>
+      <Tecnologias/>
       <Projetos />
       <Contato />
       <Footer />

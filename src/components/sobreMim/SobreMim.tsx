@@ -3,7 +3,7 @@ import Article from "../Article";
 import {
   todasTecnologias
 } from "@/data/tecnologiasDados";
-import TecnologiasUsadas from "./TecnologiasUsadas";
+import TecnologiasUsadas from "../tecnologias/Tecnologias";
 import { Fragment } from "react";
 import { motion } from "motion/react";
 
