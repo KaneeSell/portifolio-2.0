@@ -54,10 +54,7 @@ export default function CustomCheckBox({
                     scaleX: variant === "rotate"? [0, 1] : 1
                 }}
                 viewport={{ once: true }}
-                transition={{
-                    duration: 0.8,
-                    ease: "easeInOut",
-                }}
+                transition={defaultTransition}
             />
             <motion.span className="bg-white rounded-full absolute"
                 animate={{
@@ -70,10 +67,7 @@ export default function CustomCheckBox({
                     scaleX: variant === "rotate"? [0, 1] : 1
                 }}
                 viewport={{ once: true }}
-                transition={{
-                    duration: 0.8,
-                    ease: "easeInOut",
-                }}
+                transition={defaultTransition}
             />
         </motion.div>
     )
