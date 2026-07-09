@@ -47,7 +47,11 @@ export const projetoDados: ProjetoTypes[] = [
     equipe: true,
     tamanhoEquipe: 2,
     funcionalidades: [
-      "- Registro de usuários\n- Login e logout\n- Gerenciamento de sessões\n- Validação de formulários com feedback em tempo real\n- Comunicação segura entre frontend e backend",
+      "Registro de usuários",
+      "Login e logout",
+      "Gerenciamento de sessões",
+      "Validação de formulários com feedback em tempo real",
+      "Comunicação segura entre frontend e backend",
     ],
     imagem: ImgLoginNext,
     inicio: new Date("2023-01-01"),

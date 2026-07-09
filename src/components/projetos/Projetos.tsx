@@ -166,7 +166,7 @@ export default function Projetos() {
             className={"text-lg font-normal font-sans flex items-center justify-center gap-5 flex-wrap"}>
             <div className="flex flex-row-reverse flex-wrap gap-2 w-full justify-center items-center">
               <button
-              onClick={resetFilters}
+                onClick={resetFilters}
                 className="btn text-nowrap box warning!">
                 Resetar filtros
                 <FaFilterCircleXmark />
@@ -377,11 +377,19 @@ export default function Projetos() {
                 )}
               </div>
               <hr />
-              <span className="flex w-full flex-col gap-1 text-white text-lg lg:text-xl text-center justify-center">
+              <span className="stack-col">
+                {projeto.repositorioPrivado && (
+                  <button
+                    className="btn btn-disabled"
+                    disabled
+                  >
+                    Repositorio Privado
+                  </button>
+                )}
                 {projeto.repo && (
                   <Link href={projeto.repo} target="_blank" rel="noopener noreferrer nofollow">
                     <button
-                      className="text-gray-300 hover:text-white bg-neutral-700 px-2 w-full py-0.5 hover:bg-neutral-600 rounded-md hover:cursor-pointer"
+                      className="btn w-full"
                     >
                       Repositorio
                     </button>
@@ -390,7 +398,7 @@ export default function Projetos() {
                 {projeto.link && (
                   <Link href={projeto.link} target="_blank" rel="noopener noreferrer nofollow">
                     <button
-                      className="text-gray-300 hover:text-white bg-green-600 px-2 w-full py-0.5 hover:bg-green-500 rounded-md hover:cursor-pointer"
+                      className="btn w-full success"
                     >
                       Demonstração
                     </button>
@@ -398,7 +406,7 @@ export default function Projetos() {
                 )}
                 <button
                   onClick={() => setOpenProject(projeto)}
-                  className="text-gray-300 hover:text-white bg-sky-600 w-full px-2 py-0.5 hover:bg-sky-500 rounded-md hover:cursor-pointer"
+                      className="btn w-full primary"
                 >
                   Ver Detalhes
                 </button>

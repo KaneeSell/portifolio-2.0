@@ -7,15 +7,27 @@ import { Fragment } from "react/jsx-runtime"
 import { AnimatePresence, motion } from "motion/react";
 import CustomLightBox from "../lightbox/CustomLightBox"
 import useLockBodyScroll from "@/hooks/useLockBodyScroll"
+import Link from "next/link"
 
 export default function ModalProjetos() {
     const project = useOpenProject((state) => state.project)
     const setProject = useOpenProject((state) => state.setProject)
     const [imgOpen, setImgOpen] = useState<boolean>(false);
     const { setLock } = useLockBodyScroll(false)
-    
+    const dateOptions: {
+        weekday: "long" | "short" | "narrow" | undefined,
+        year: "numeric" | "2-digit" | undefined,
+        month: "long" | "short" | "narrow" | "numeric" | "2-digit" | undefined,
+        day: "numeric" | "2-digit" | undefined,
+    } = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+    }
+
     useEffect(() => {
-        if(project !== null) {
+        if (project !== null) {
             setLock(true)
         } else {
             setLock(false)
@@ -63,7 +75,81 @@ export default function ModalProjetos() {
                                 />
                             </Fragment>
                         )}
-                        <p className="text-lg mt-5">{project?.descricao}</p>
+                        <div className="box justify-start w-full flex-wrap">
+                            <span>
+                                <strong>Data de Início:</strong> {project.inicio?.toLocaleDateString("pt-BR", dateOptions)}
+                            </span>
+                            <span>
+                                <strong>Última Atualização:</strong> {project.ultimaAtualizacao?.toLocaleDateString("pt-BR", dateOptions)}
+                            </span>
+                        </div>
+                        <div className="box justify-start w-full flex-wrap">
+                            <span>
+                                <strong>Status:</strong> {project.status}
+                            </span>
+                            <span>
+                                <strong>Versão:</strong> {project.versao}
+                            </span>
+                            {project.tipo && (
+                                <span>
+                                    <strong>Tipo:</strong> {project.tipo}
+                                </span>
+                            )}
+                            {project.equipe && (
+                                <span>
+                                    <strong>Equipe?</strong> Sim
+                                </span>
+                            )}
+                            {project.tamanhoEquipe && project.tamanhoEquipe > 0 && (
+                                <span>
+                                    <strong>Tamanho da Equipe:</strong> {project.tamanhoEquipe}
+                                </span>
+                            )}
+                        </div>
+                        {project.tecnologias && (
+                            <span>
+                                <strong>Principais Tecnologias:</strong> {Array.isArray(project.tecnologias) && project.tecnologias?.join(", ")}.
+                            </span>
+                        )}
+                        {project.funcionalidades && (
+                            <span>
+                                <strong>Funcionalidade:</strong> {project.funcionalidades.join(", ")}.
+                            </span>
+                        )}
+                        <p className="text-lg font-medium font-sans"><strong>Descrição:</strong> {project?.descricao}</p>
+                        <p className="text-lg font-medium font-sans"><strong>Arquitetura:</strong> {project?.arquitetura}</p>
+                        <p className="text-lg font-medium font-sans"><strong>Desafios:</strong> {project?.desafios}</p>
+                        <p className="text-lg font-medium font-sans"><strong>Desafios:</strong> {project?.desafios}</p>
+                        <span className="box w-full">
+                            {project.repo && (
+                                <Link href={project.repo} target="_blank" rel="noopener noreferrer nofollow" className="w-full md:w-[49%]">
+                                    <button
+                                        className="btn w-full"
+                                    >
+                                        Repositorio
+                                    </button>
+                                </Link>
+                            )}
+                            {project.repositorioPrivado && (
+                                <div className="w-full md:w-[49%]">
+                                    <button
+                                        className="btn w-full"
+                                        disabled
+                                    >
+                                        Repositorio Privado
+                                    </button>
+                                </div>
+                            )}
+                            {project.link && (
+                                <Link href={project.link} target="_blank" rel="noopener noreferrer nofollow" className="w-full md:w-[49%]">
+                                    <button
+                                        className="btn success w-full"
+                                    >
+                                        Demonstração
+                                    </button>
+                                </Link>
+                            )}
+                        </span>
                     </div>
                 </ motion.div>
             )}
