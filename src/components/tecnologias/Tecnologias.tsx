@@ -72,7 +72,7 @@ export default function Tecnologias() {
             pointer-events-none bg-linear-to-t
             from-black via-black
             light:from-neutral-200/30 
-            light:via-neutral-200/10 z-10
+            light:via-neutral-200/10 z-9
             to-transparent flex justify-center items-end
           `}
           />

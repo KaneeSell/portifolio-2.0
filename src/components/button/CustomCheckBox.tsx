@@ -4,11 +4,11 @@ import { Fragment, useEffect, useState } from "react"
 
 export default function CustomCheckBox({
     checked,
-    onClick,
+    onClick = () => {},
     variant = "transform"
 }: {
     checked: boolean,
-    onClick: () => void,
+    onClick?: () => void,
     variant?: "rotate" | "transform"
 }) {
     const variantTransform = {
@@ -41,14 +41,14 @@ export default function CustomCheckBox({
                 once: true,
             }}
             transition={defaultTransition}
-            className="box relative border-2 hover:brightness-80 h-5 w-5 rounded-full"
+            className="box relative border-2 hover:brightness-80 h-7 w-7 rounded-full"
             onClick={onClick}>
             <motion.span className="bg-white rounded-full absolute"
                 animate={{
-                    width: checked? [0, 8] : [0, 13],
+                    width: checked? [0, 8] : [0, 20],
                     height: 3,
                     originX: 0.5,
-                    x: checked? -3 : 0,
+                    x: checked? -6 : 0,
                     y: checked? 2.5 : 0,
                     rotate: 45,
                     scaleX: variant === "rotate"? [0, 1] : 1
@@ -58,7 +58,7 @@ export default function CustomCheckBox({
             />
             <motion.span className="bg-white rounded-full absolute"
                 animate={{
-                    width: checked? [0, 12] : [0, 13],
+                    width: checked? [0, 17] : [0, 20],
                     originX: 0.5,
                     x: checked? 2 : 0,
                     y: checked? 1 : 0,

@@ -13,13 +13,10 @@ import { todasTecnologias } from "@/data/tecnologiasDados";
 import { MdFilterAlt, MdFilterAltOff } from "react-icons/md";
 import { FaCircleXmark, FaFilterCircleXmark } from "react-icons/fa6";
 import CustomCheckBox from "../button/CustomCheckBox";
+import CustomLightBox from "../lightbox/CustomLightBox";
+import CustomImage from "../image/CustomImage";
 
 export default function Projetos() {
-  interface imgOpenInterface {
-    key: number;
-    open: boolean;
-  }
-  const defaultImgOpen: imgOpenInterface = { key: 0, open: false };
   const [titleFilter, setTitleFilter] = useState<string>("")
   const [techFilter, setTechFilter] = useState<NomeTecnologia | "all">("all")
   const [statusFilter, setStatusFilter] = useState<ProjetoStatus | "all">("all")
@@ -28,9 +25,7 @@ export default function Projetos() {
   const [demoFilter, setDemoFilter] = useState<boolean>(false)
   const [showFilters, setShowFilters] = useState<boolean>(false)
   const [project, setProject] = useState<ProjetoTypes[]>(projetoDados)
-  const [imgOpen, setImgOpen] = useState<imgOpenInterface>(defaultImgOpen);
   const setOpenProject = useOpenProject((state) => state.setProject)
-  const { setLock } = useLockBodyScroll(false)
 
   const resetFilters = () => {
     // setShowFilters(false)
@@ -83,14 +78,6 @@ export default function Projetos() {
 
     setProject(filtered);
   }, [techFilter, statusFilter, versionFilter, titleFilter, repoFilter, demoFilter]);
-
-  useEffect(() => {
-    if (imgOpen.open !== defaultImgOpen.open) {
-      setLock(true)
-    } else {
-      setLock(false)
-    }
-  }, [imgOpen])
 
   return (
     <div
@@ -290,16 +277,16 @@ export default function Projetos() {
               }}
               key={index}
               className={`
-              text-xl md:text-2xl flex flex-col gap-2 w-full sm:w-70 lg:w-100 h-full sm:h-100 lg:h-120
-              border rounded-2xl p-3 paper group
+              text-xl md:text-2xl flex flex-col gap-0.5 h-full sm:h-120
+              border rounded-2xl p-3 paper group w-full sm:w-90
             `}
             >
-              <span>{projeto.nome}</span>
-              <figure className="relative h-full lg:h-50">
+              <span className="light:group-hover:text-blue-800">{projeto.nome}</span>
+              <figure className="relative h-full w-full">
                 <div
                   className={`
                 absolute flex w-full justify-evenly items-center light:text-white
-                text-sm lg:text-base top-2 text-nowrap flex-wrap gap-1 z-1
+                text-sm top-2 text-nowrap flex-wrap gap-1 z-1
                 `}
                 >
                   <span
@@ -325,42 +312,19 @@ export default function Projetos() {
                     {projeto.versao}
                   </span>
                 </div>
-                {projeto.imagem && projeto.imagemCaminho && (
+                {projeto.imagemPrincipal && (
                   <Fragment>
-                    <div className="relative group/img flex justify-center items-center cursor-pointer border-2 border-transparent hover:border-white">
-                      <Image
-                        alt={`Imagem ${projeto.nome}`}
-                        src={projeto.imagem}
-                        onClick={() => setImgOpen({ key: index, open: true })}
-                        className="group-hover:brightness-80"
-                      />
-                      <FaExpand className="hidden group-hover/img:flex absolute" />
-                    </div>
-                    <Lightbox
-                      open={
-                        imgOpen.key === index && imgOpen.open === true
-                          ? true
-                          : false
-                      }
-                      close={() => setImgOpen(defaultImgOpen)}
-                      slides={projeto.imagemCaminho.map((img) => ({ src: img }))}
-                      render={{
-                        buttonPrev:
-                          projeto.imagemCaminho.length <= 1
-                            ? () => null
-                            : undefined,
-                        buttonNext:
-                          projeto.imagemCaminho.length <= 1
-                            ? () => null
-                            : undefined,
-                      }}
-                    />
+                    <CustomImage
+                      galery={projeto.galeria}
+                      alt={`Imagem ${projeto.nome}`}
+                      img={projeto.imagemPrincipal} />
+
                   </Fragment>
                 )}
               </figure>
               <span
                 onClick={() => console.log(projeto)}
-                className="text-base px-2 md:text:lg h-full text-sub overflow-y-auto">
+                className="text-base px-2 font-thin h-full text-sub overflow-y-auto">
                 {projeto.resumo}
               </span>
               <div>
@@ -368,7 +332,7 @@ export default function Projetos() {
                   <div className="text-sm flex flex-wrap gap-1 text-sub group-hover:text-default">
                     Principais Tecnologias:
                     {Array.isArray(projeto.tecnologias) && projeto.tecnologias?.map((tech, index) => (
-                      <span className="border px-2 rounded-full "
+                      <span className="border px-2 rounded-full"
                         key={index}>
                         {tech}
                       </span>
@@ -389,7 +353,7 @@ export default function Projetos() {
                 {projeto.repo && (
                   <Link href={projeto.repo} target="_blank" rel="noopener noreferrer nofollow">
                     <button
-                      className="btn w-full"
+                      className="btn py-1 w-full"
                     >
                       Repositorio
                     </button>
@@ -398,7 +362,7 @@ export default function Projetos() {
                 {projeto.link && (
                   <Link href={projeto.link} target="_blank" rel="noopener noreferrer nofollow">
                     <button
-                      className="btn w-full success"
+                      className="btn py-1 w-full success"
                     >
                       Demonstração
                     </button>
@@ -406,7 +370,7 @@ export default function Projetos() {
                 )}
                 <button
                   onClick={() => setOpenProject(projeto)}
-                      className="btn w-full primary"
+                  className="btn py-1 w-full primary"
                 >
                   Ver Detalhes
                 </button>

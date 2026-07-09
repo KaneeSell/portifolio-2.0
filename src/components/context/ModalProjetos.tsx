@@ -8,6 +8,10 @@ import { AnimatePresence, motion } from "motion/react";
 import CustomLightBox from "../lightbox/CustomLightBox"
 import useLockBodyScroll from "@/hooks/useLockBodyScroll"
 import Link from "next/link"
+import CustomImage from "../image/CustomImage"
+import { getCorProjetoStatus, getCorProjetoVersao } from "@/types/projetoTypes"
+import CustomCheckBox from "../button/CustomCheckBox"
+import { todasTecnologias } from "@/data/tecnologiasDados"
 
 export default function ModalProjetos() {
     const project = useOpenProject((state) => state.project)
@@ -20,9 +24,9 @@ export default function ModalProjetos() {
         month: "long" | "short" | "narrow" | "numeric" | "2-digit" | undefined,
         day: "numeric" | "2-digit" | undefined,
     } = {
-        weekday: "long",
+        weekday: undefined,
         year: "numeric",
-        month: "long",
+        month: "short",
         day: "numeric",
     }
 
@@ -54,28 +58,52 @@ export default function ModalProjetos() {
                     <div onClick={(e) => e.stopPropagation()} className="modal">
                         <button
                             className={`
-                                absolute top-3 right-5 text-white text-2xl font-bold border-2 p-1 rounded-lg bg-red-500 hover:bg-red-600 hover:cursor-pointer
+                                absolute top-3 right-5 text-white text-lg font-bold border-2 p-1 rounded-lg bg-red-500 hover:bg-red-600 hover:cursor-pointer
                             `}
                             onClick={() => setProject(null)}>
                             <MdClose />
                         </button>
                         <h2 className="text-3xl font-bold">{project?.nome}</h2>
-                        {project?.imagem && project?.imagemCaminho && (
-                            <Fragment>
-                                <Image
+                        {project?.imagemPrincipal && (
+                            <div className="box w-full">
+                                <CustomImage
+                                    galery={project.galeria}
                                     alt={`Imagem ${project.nome}`}
-                                    src={project.imagem}
-                                    className="w-auto h-100 mt-5 rounded-lg hover:cursor-pointer"
-                                    onClick={() => setImgOpen(true)}
-                                />
+                                    img={project.imagemPrincipal}
+                                    onClick={() => setImgOpen(true)} />
                                 <CustomLightBox
-                                    images={[project.imagem]}
+                                    images={project.imagemPrincipal}
                                     open={imgOpen}
                                     onClose={() => setImgOpen(false)}
                                 />
-                            </Fragment>
+                            </div>
                         )}
-                        <div className="box justify-start w-full flex-wrap">
+                        <div className="box text-lg justify-evenly w-full">
+                            {project.tipo && (
+                                <span>
+                                    <strong>Tipo:</strong> {project.tipo}
+                                </span>
+                            )}
+                            <span className="box">
+                                <strong>{project.equipe ? "Equipe" : "Solo"}</strong> <CustomCheckBox checked={true} />
+                            </span>
+                            {project.tamanhoEquipe && project.tamanhoEquipe > 0 && (
+                                <span>
+                                    <strong>Tamanho da Equipe:</strong> {project.tamanhoEquipe}
+                                </span>
+                            )}
+                        </div>
+                        <div className="box text-lg justify-evenly w-full">
+                            <span className="box">
+                                <strong>Status:</strong>
+                                <p className={`${getCorProjetoStatus({ status: project.status })} rounded-full px-2`}>{project.status}</p>
+                            </span>
+                            <span className="box">
+                                <strong>Versão:</strong>
+                                <p className={`${getCorProjetoVersao({ versao: project.versao })} rounded-full px-2`}>{project.versao}</p>
+                            </span>
+                        </div>
+                        <div className="box text-lg justify-evenly w-full">
                             <span>
                                 <strong>Data de Início:</strong> {project.inicio?.toLocaleDateString("pt-BR", dateOptions)}
                             </span>
@@ -83,43 +111,62 @@ export default function ModalProjetos() {
                                 <strong>Última Atualização:</strong> {project.ultimaAtualizacao?.toLocaleDateString("pt-BR", dateOptions)}
                             </span>
                         </div>
-                        <div className="box justify-start w-full flex-wrap">
-                            <span>
-                                <strong>Status:</strong> {project.status}
-                            </span>
-                            <span>
-                                <strong>Versão:</strong> {project.versao}
-                            </span>
-                            {project.tipo && (
-                                <span>
-                                    <strong>Tipo:</strong> {project.tipo}
-                                </span>
-                            )}
-                            {project.equipe && (
-                                <span>
-                                    <strong>Equipe?</strong> Sim
-                                </span>
-                            )}
-                            {project.tamanhoEquipe && project.tamanhoEquipe > 0 && (
-                                <span>
-                                    <strong>Tamanho da Equipe:</strong> {project.tamanhoEquipe}
-                                </span>
-                            )}
-                        </div>
                         {project.tecnologias && (
-                            <span>
-                                <strong>Principais Tecnologias:</strong> {Array.isArray(project.tecnologias) && project.tecnologias?.join(", ")}.
+                            <span className="box w-full flex-col text-lg">
+                                <p><strong>Tecnologias: </strong></p>
+                                <span className="box">
+                                    {project.tecnologias.map((tech, index) => {
+                                        const findTech = todasTecnologias.map(stack => {
+                                            const findedTechs = stack.itens.find(techItem => techItem.nome === tech)
+                                            return findedTechs
+                                        })
+                                        const techIcon = findTech.filter(tech => tech?.icon).map(tech => tech?.icon)
+                                        const techName = findTech.filter(tech => tech?.nome).map(tech => tech?.nome)
+
+                                        return (
+                                            <span key={index} className="box">
+                                                <i className={`${techIcon}`}></i>
+                                                {techName}{(index + 1) !== project.tecnologias?.length ? ", " : "."}
+                                            </span>
+                                        )
+                                    })}
+                                </span>
                             </span>
                         )}
                         {project.funcionalidades && (
-                            <span>
-                                <strong>Funcionalidade:</strong> {project.funcionalidades.join(", ")}.
+                            <span className="box gap-0">
+                                <p className="text-lg"><strong>Funcionalidade:</strong></p>
+                                <p className="text-lg font-sans text-center">{project.funcionalidades.join(", ")}</p>
                             </span>
                         )}
-                        <p className="text-lg font-medium font-sans"><strong>Descrição:</strong> {project?.descricao}</p>
-                        <p className="text-lg font-medium font-sans"><strong>Arquitetura:</strong> {project?.arquitetura}</p>
-                        <p className="text-lg font-medium font-sans"><strong>Desafios:</strong> {project?.desafios}</p>
-                        <p className="text-lg font-medium font-sans"><strong>Desafios:</strong> {project?.desafios}</p>
+                        <span className="box gap-0">
+                            <p className="text-lg"><strong>Descrição:</strong></p>
+                            <p className="text-lg font-sans font-thin w-full text-justify">{project?.descricao}</p>
+                        </span>
+                        {project.desafios && (
+                            <span className="box gap-0">
+                                <p className="text-lg"><strong>Funcionalidade:</strong></p>
+                                <p className="text-lg font-sans text-center">{project.desafios}</p>
+                            </span>
+                        )}
+                        <div className="box w-full justify-evenly items-start">
+                            {project.arquitetura && (
+                                <div className="flex flex-col justify-start items-start">
+                                    <p className="text-lg"><strong>Arquitetura: </strong></p>
+                                    <ul className="list-disc">
+                                        {project.arquitetura.map((item, index) => <li className="list-item ml-4" key={index}>{item}</li>)}
+                                    </ul>
+                                </div>
+                            )}
+                            {project.competencias && (
+                                <div className="flex flex-col justify-start items-start">
+                                    <p><strong>Competencias: </strong></p>
+                                    <ul className="list-disc">
+                                        {project.competencias.map((item, index) => <li className="list-item ml-4" key={index}>{item}</li>)}
+                                    </ul>
+                                </div>
+                            )}
+                        </div>
                         <span className="box w-full">
                             {project.repo && (
                                 <Link href={project.repo} target="_blank" rel="noopener noreferrer nofollow" className="w-full md:w-[49%]">
@@ -150,6 +197,9 @@ export default function ModalProjetos() {
                                 </Link>
                             )}
                         </span>
+                        <button className="btn w-full error" onClick={() => setProject(null)}>
+                            Voltar
+                        </button>
                     </div>
                 </ motion.div>
             )}

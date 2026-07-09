@@ -52,6 +52,14 @@ export const frontend = {
       progress: 80,
       estudando: false,
     },
+    {
+      nome: "Motion",
+      descricao: "Biblioteca para animações fluidas e interativas em aplicações React.",
+      icon: "devicon-framermotion-original",
+      nivel: getNivel(80),
+      progress: 80,
+      estudando: false,
+    },
   ],
 } as const satisfies TecnologiaTypes;
 
