@@ -136,19 +136,19 @@ export default function ModalProjetos() {
                                 </span>
                             </span>
                         )}
+                        <span className="box gap-0">
+                            <p className="text-lg"><strong>Descrição:</strong></p>
+                            <p className="text-lg font-sans font-thin w-full text-justify">{project?.descricao}</p>
+                        </span>
                         {project.funcionalidades && (
                             <span className="box gap-0">
                                 <p className="text-lg"><strong>Funcionalidade:</strong></p>
                                 <p className="text-lg font-sans text-center">{project.funcionalidades.join(", ")}</p>
                             </span>
                         )}
-                        <span className="box gap-0">
-                            <p className="text-lg"><strong>Descrição:</strong></p>
-                            <p className="text-lg font-sans font-thin w-full text-justify">{project?.descricao}</p>
-                        </span>
                         {project.desafios && (
                             <span className="box gap-0">
-                                <p className="text-lg"><strong>Funcionalidade:</strong></p>
+                                <p className="text-lg"><strong>Desafios:</strong></p>
                                 <p className="text-lg font-sans text-center">{project.desafios}</p>
                             </span>
                         )}

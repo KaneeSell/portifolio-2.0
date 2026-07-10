@@ -151,6 +151,98 @@ export const projetoDados: ProjetoTypes[] = [
     PostgreSQL, além de diversos componentes reutilizáveis para acelerar o desenvolvimento 
     e manter consistência entre aplicações.
     `,
+    imagemPrincipal: {
+      src: "https://i.imgur.com/JZ9mHpa.png",
+      title: "Tela inicial do template",
+      description: "configuração de rotas publicas em arquivo de configuração, ou seja pode ser publica essa rota, mas inicialmente protegida por login",
+    },
+    galeria: [
+      {
+        src: "https://i.imgur.com/JZ9mHpa.png",
+        title: "Tela inicial do template",
+        description: "configuração de rotas publicas em arquivo de configuração, ou seja pode ser publica essa rota, mas inicialmente protegida por login",
+      },
+      {
+        src: "https://i.imgur.com/quLiIDb.png",
+        title: "Tela de login",
+        description: "Tela de login do template, com autenticação via Auth.js e proteção de rotas",
+      },
+      {
+        src: "https://i.imgur.com/GgMGRtn.png",
+        title: "Configuração de tema",
+        description: "Botão flutuante de configuração de tema do template, com opções de tema dark, light e system, Paleta de cores",
+      },
+      {
+        src: "https://i.imgur.com/TV68271.png",
+        title: "Tela de dashboard",
+        description: "Dashboard template, protegida por padrão do arquivo de config como rota somente admin ou superior, mas pode ser configurada para qualquer tipo de usuário, ou seja, pode ser rota publica também",
+      },
+      {
+        src: "https://i.imgur.com/IDQxrJH.png",
+        title: "404 Page Not Found",
+        description: "Página de erro 404 do template, com botão de voltar para a página inicial",
+      },
+      {
+        src: "https://i.imgur.com/PxJtOPm.png",
+        title: "Tela de Configuração do perfil",
+        description: "Página de configuração do perfil do template, funcional alterar nome, foto, emaul e senha, com validação de campos e feedback para o usuário",
+      },
+      {
+        src: "https://i.imgur.com/dyyLFzG.png",
+        title: "Tela de Configuração do Sistema user",
+        description: "Tela de configurações, aonde não tem campos ainda, somente visual, mas se entrar com conta admin ou dev pode estar alterando acessos dos usuarios, como na foto seguinte da galeria",
+      },
+      {
+        src: "https://i.imgur.com/a7I4bOY.png",
+        title: "Tela de Configuração do Sistema dev",
+        description: "Caso dev pode estar editando usuarios, configuravel caso queira que admin modifique tambem, mas padrão é dev, podendo ver todos os detalhes do usuario, alterar nivel de acesso(user,admin,dev) e redefinir senha que gera uma senha ramdom",
+      },
+      {
+        src: "https://i.imgur.com/qTdksCw.png",
+        title: "Tela de componentes KS-Components",
+        description: "Exemplo de uso dos componentes e customosações, como nas fotos seguintes da galeria sera mostrando cada componente do template, com exemplos de uso e customizações",
+      },
+      {
+        src: "https://i.imgur.com/n8EQKF6.png",
+        title: "Fallbacks Confirm",
+        description: "Alert, Confirm, Prompt, e Mensagem de dialogo",
+      },
+      {
+        src: "https://i.imgur.com/NA4b0vS.png",
+        title: "Formulários",
+        description: "Modal que exibe um formulario a ser preenchido e retorna esses dados",
+      },
+      {
+        src: "https://i.imgur.com/JM9Iis6.png",
+        title: "Navegação",
+        description: "Exemplos de navegação lateral do menu lateral",
+      },
+      {
+        src: "https://i.imgur.com/4rUNCzQ.png",
+        title: "RKCard",
+        description: "Cards customizaveis",
+      },
+      {
+        src: "https://i.imgur.com/TF19KXN.png",
+        title: "RKEmptyState",
+        description: "componente que mostra mensagem que nao achou dados e com opção de ter botão de ação",
+      },
+      {
+        src: "https://i.imgur.com/ah2kPwE.png",
+        title: "RKLandingState",
+        description: "Componente para carregamento",
+      },
+      {
+        src: "https://i.imgur.com/klJc75q.png",
+        title: "RKBeadcump",
+        description: "Componente de navegação",
+      },
+      {
+        src: "https://i.imgur.com/YoJXLKE.png",
+        title: "RKSearchBox",
+        description: "Componente de caixa de busca",
+      },
+    ],
     status: "Concluido",
     versao: "Produção",
     repositorioPrivado: true,
@@ -224,6 +316,118 @@ export const projetoDados: ProjetoTypes[] = [
     `,
     status: "Descontinuado",
     versao: "MVP",
+    imagemPrincipal: {
+      src: "https://i.imgur.com/5zWzSLy.png",
+      title: "Tela Inicial ERP",
+      description: "Notificação superior, menu lateral, tema dark, light e systems, menu mobile",
+    },
+    galeria: [
+      {
+        src: "https://i.imgur.com/5zWzSLy.png",
+        title: "Tela Inicial ERP",
+        description: "Notificação superior, menu lateral, tema dark, light e systems, menu mobile",
+      },
+      {
+        src: "https://i.imgur.com/t7V1Sc9.png",
+        title: "Tela inicial visão Mobile",
+        description: "Visão responsiva do ERP em modo mobile",
+      },
+      {
+        src: "https://i.imgur.com/AT6fGLy.png",
+        title: "Menu Mobile",
+        description: "Menu do ERP em visão mobile",
+      },
+      {
+        src: "https://i.imgur.com/KFMZm2l.png",
+        title: "Menu Lateral Não Fixo",
+        description: "Menu lateral não fixo, com opção de fixar, mas na foto seguinte mostra ele fixo",
+      },
+      {
+        src: "https://i.imgur.com/jPeEDSs.png",
+        title: "Menu Lateral Fixo",
+        description: "Menu lateral fixo, quando fixa o menu ele passa a dividir a tela em duas partes para nao perder o conteudo e continuar com experiencia do menu sempre aberto",
+      },
+      {
+        src: "https://i.imgur.com/nkF0NPl.png",
+        title: "Tela de login",
+        description: "Tela de login do ERP usando tema dark",
+      },
+      {
+        src: "https://i.imgur.com/apIFEZl.png",
+        title: "Tela inicial Light Theme",
+        description: "Tela inicial do ERP usando tema light",
+      },
+      {
+        src: "https://i.imgur.com/hAukNo2.png",
+        title: "Notificações Visão Desktop",
+        description: "Notificações do ERP em visão desktop",
+      },
+      {
+        src: "https://i.imgur.com/viete7e.png",
+        title: "Tela de Entidades",
+        description: "Tela de entidades, todas as telas são meio parecidas, foco era ser algo simples de desenvolver e facil de entender, logo tabela com crud para todas as telas foi a melhor opção",
+      },
+      {
+        src: "https://i.imgur.com/zwtfNS0.png",
+        title: "Tela de Cadastro de Entidades",
+        description: "Tela de cadastro de entidades, algo simples, mas funcional, com validação de campos e feedback para o usuário",
+      },
+      {
+        src: "https://i.imgur.com/zwtfNS0.png",
+        title: "Tela de Cadastro de Entidades",
+        description: "Tela de cadastro de entidades, algo simples, mas funcional, com validação de campos e feedback para o usuário",
+      },
+      {
+        src: "https://i.imgur.com/Vr2VChx.png",
+        title: "Visualização de Produto",
+        description: "Tela de Produto, com informações detalhadas do produto, estoque e movimentações, estoque zerado, mas quando tem valor mostra certinho ao usuario",
+      },
+      {
+        src: "https://i.imgur.com/VM1EMfi.png",
+        title: "Entrada de Produto",
+        description: "Tela de Produto, clicando na na opção de entrada nos botões de ação, podemos dar entrada rapida escolhendo a quantidade e local de estoque, funciona clicando em saida e movimentação a qual é mais completo escolhendo o tipo se entrada ou saida",
+      },
+      {
+        src: "https://i.imgur.com/rXna2Bf.png",
+        title: "Tela de Relatorios do Produto",
+        description: "Tela de Relatorios do Produto, aonde clicando na ação de relatorio do produto, podemos ver opções de relatorio para os mesmos",
+      },
+      {
+        src: "https://i.imgur.com/XjhYS3B.png",
+        title: "Relatorio Geral de Produto",
+        description: "Relatorio Geral mostrando entrada e saida do produto, com opção de exportar para PDF e Excel, e também opção de imprimir",
+      },
+      {
+        src: "https://i.imgur.com/te3vV0E.png",
+        title: "Tela de Relatorios do Estoque",
+        description: "Tela de Relatorios do Estoque, aonde clicando na ação de relatorio do estoque, podemos ver opções de relatorio para os mesmos",
+      },
+      {
+        src: "https://i.imgur.com/wsvQJnp.png",
+        title: "Relatorio Geral de Estoque",
+        description: "Relatorio Geral mostrando entrada e saida do estoque, com opção de exportar para PDF e Excel, e também opção de imprimir",
+      },
+      {
+        src: "https://i.imgur.com/9feTwCI.png",
+        title: "Novo Estoque",
+        description: "Novo Estoque, poucos campos para ser agil e rapido",
+      },
+      {
+        src: "https://i.imgur.com/23vdjVt.png",
+        title: "Tela de configurações",
+        description: "Resetar quantidade produtos: é uma função que criei quando passou a ter esse campo em produto com a quantidade total em cada estoque, configurações de permissão na proxima foto da galeria, configurações avançadas e relatorios era para futuramente ser implantado",
+      },
+      {
+        src: "https://i.imgur.com/I1JzayS.png",
+        title: "Tela de configurações de Permissão",
+        description: "Somente visualização, mas futuramente era para gerenciar tambem os usuarios, rotas no backend ja estavam criadas",
+      },
+      {
+        src: "https://i.imgur.com/iekrp63.png",
+        title: "Tela de configurações de perfil",
+        description: "Configurações basicas de perfil como mudar senha e editar usuario(email e nome), e visualização completa do perfil",
+      },
+    ],
     repositorioPrivado: true,
     tecnologias: [
       "Next.js",
@@ -232,6 +436,7 @@ export const projetoDados: ProjetoTypes[] = [
       "Tailwind CSS",
       "Node.js",
       "PostgreSQL",
+      "Prisma ORM",
       "JWT",
       "NestJS",
       "MUI DataGrid",
@@ -243,6 +448,7 @@ export const projetoDados: ProjetoTypes[] = [
       "Proteção de rotas",
       "JWT para autenticação",
       "PostgreSQL como banco de dados",
+      "Prisma ORM para gerenciamento de dados",
       "Componentes reutilizáveis",
       "Separação por responsabilidade",
       "Custom Hooks",

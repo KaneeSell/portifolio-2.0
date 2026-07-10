@@ -86,7 +86,7 @@ export default function Projetos() {
         scroll-m-15 mt-10 px-5 flex flex-col gap-10 w-full
         text-3xl md:text-5xl font-serif font-extrabold
         items-center
-        `}
+      `}
     >
       <div className="flex items-center justify-center flex-col gap-3">
         <motion.h2
@@ -277,7 +277,7 @@ export default function Projetos() {
               }}
               key={index}
               className={`
-              text-xl md:text-2xl flex flex-col gap-0.5 h-full sm:h-120 relative
+              text-xl md:text-2xl flex flex-col gap-0.5 h-full sm:h-130 relative
               border rounded-2xl p-3 paper group w-full sm:w-90 ${projeto.destaque && "destaque shadow-2xl shadow-amber-400/60"}
             `}
             >
