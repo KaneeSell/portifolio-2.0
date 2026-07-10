@@ -39,12 +39,13 @@ export function getCorProjetoStatus({
   }
 }
 
-export type ProjetoVersao = "Planejamento" | "Protótipo" | "MVP" | "Produção";
+export type ProjetoVersao = "Planejamento" | "Protótipo" | "MVP" | "Produção" | "Terminado";
 export const todosProjetoVersao = [
   "Planejamento",
   "Protótipo",
   "MVP",
-  "Produção"
+  "Produção",
+  "Terminado"
 ]
 
 export function getCorProjetoVersao({
@@ -65,6 +66,8 @@ export function getCorProjetoVersao({
       return `${bgOrText}red-500`
     case "Produção":
       return `${bgOrText}green-500`
+    case "Terminado":
+      return `${bgOrText}gray-500`
     default:
       return `${bgOrText}neutral-500`
   }
@@ -78,6 +81,7 @@ export type ProjetoTipo =
   | "API"
   | "Desktop"
   | "Landing Page"
+  | "Template"
   | "Outro";
 
 export type ProjetoTypes = {

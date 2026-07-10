@@ -12,6 +12,7 @@ import CustomImage from "../image/CustomImage"
 import { getCorProjetoStatus, getCorProjetoVersao } from "@/types/projetoTypes"
 import CustomCheckBox from "../button/CustomCheckBox"
 import { todasTecnologias } from "@/data/tecnologiasDados"
+import { FaLock, FaStar } from "react-icons/fa"
 
 export default function ModalProjetos() {
     const project = useOpenProject((state) => state.project)
@@ -55,15 +56,17 @@ export default function ModalProjetos() {
                         justify-center items-center
                     `}
                     onClick={() => setProject(null)}>
-                    <div onClick={(e) => e.stopPropagation()} className="modal">
+                    <div onClick={(e) => e.stopPropagation()} className={`modal ${project?.destaque && "destaque"}`}>
                         <button
                             className={`
-                                absolute top-3 right-5 text-white text-lg font-bold border-2 p-1 rounded-lg bg-red-500 hover:bg-red-600 hover:cursor-pointer
+                                absolute top-3 right-5 text-white text-lg font-bold border-2 p-1 
+                                rounded-lg bg-red-500 hover:bg-red-600 hover:cursor-pointer
                             `}
                             onClick={() => setProject(null)}>
                             <MdClose />
                         </button>
                         <h2 className="text-3xl font-bold">{project?.nome}</h2>
+                        {project?.destaque && <FaStar className="text-amber-400 size-7 absolute top-2 left-2" />}
                         {project?.imagemPrincipal && (
                             <div className="box w-full">
                                 <CustomImage
@@ -169,7 +172,7 @@ export default function ModalProjetos() {
                         </div>
                         <span className="box w-full">
                             {project.repo && (
-                                <Link href={project.repo} target="_blank" rel="noopener noreferrer nofollow" className="w-full md:w-[49%]">
+                                <Link href={project.repo} target="_blank" rel="noopener noreferrer nofollow" className={`w-full ${project.link && "md:w-[49%]"}`}>
                                     <button
                                         className="btn w-full"
                                     >
@@ -178,17 +181,18 @@ export default function ModalProjetos() {
                                 </Link>
                             )}
                             {project.repositorioPrivado && (
-                                <div className="w-full md:w-[49%]">
+                                <div className={`w-full ${project.link && "md:w-[49%]"}`}>
                                     <button
-                                        className="btn w-full"
+                                        className="btn btn-disabled py-1 w-full"
                                         disabled
                                     >
                                         Repositorio Privado
+                                        <FaLock />
                                     </button>
                                 </div>
                             )}
                             {project.link && (
-                                <Link href={project.link} target="_blank" rel="noopener noreferrer nofollow" className="w-full md:w-[49%]">
+                                <Link href={project.link} target="_blank" rel="noopener noreferrer nofollow" className={`w-full ${project.repo || project.repositorioPrivado && "md:w-[49%]"}`}>
                                     <button
                                         className="btn success w-full"
                                     >

@@ -6,13 +6,31 @@ import ImgERPLite from "@/assets/img/ERP Lite.png";
 import ImgLoginNext from "@/assets/img/Login Next.png";
 import { ProjetoTypes } from "@/types/projetoTypes";
 
-const templateMinimum = {
+const templateMinimum: ProjetoTypes = {
   id: 0,
   nome: "",
   resumo: "",
-  descricao: "",
+  descricao: `
+    Descrição.
+    `,
   status: "Concluido",
-  versao: "MVP",
+  versao: "Terminado",
+  repositorioPrivado: false,
+  repo: "",
+  link: "",
+  tecnologias: [],
+  arquitetura: [],
+  competencias: [],
+  desafios: ``,
+  solucoes: ``,
+  destaque: false,
+  equipe: false,
+  tamanhoEquipe: undefined,
+  tipo: "Outro",
+  funcionalidades: [],
+  inicio: new Date("2026-05-06"),
+  ultimaAtualizacao: new Date("2026-06-02"),
+  modulos: [],
 }
 
 export const projetoDados: ProjetoTypes[] = [
@@ -32,10 +50,9 @@ export const projetoDados: ProjetoTypes[] = [
 
     tipo: "Portfolio",
 
-    destaque: true,
+    destaque: false,
 
     repo: "https://github.com/KaneeSell/portifolio-2.0",
-    link: "https://...", // caso exista
 
     galeria: [
       {
@@ -124,32 +141,157 @@ export const projetoDados: ProjetoTypes[] = [
       "Contato",
     ],
   },
+  {
+    id: 2,
+    nome: "Template-Next",
+    resumo: "Template Full Stack desenvolvido para acelerar a criação de aplicações web, oferecendo uma arquitetura pronta, autenticação, persistência de dados e componentes reutilizáveis.",
+    descricao: `
+    Template Full Stack desenvolvido para servir como base de novos projetos. 
+    Possui arquitetura organizada, autenticação com Auth.js, integração com Prisma ORM e 
+    PostgreSQL, além de diversos componentes reutilizáveis para acelerar o desenvolvimento 
+    e manter consistência entre aplicações.
+    `,
+    status: "Concluido",
+    versao: "Produção",
+    repositorioPrivado: true,
+    tecnologias: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Prisma ORM",
+      "PostgreSQL",
+      "Auth.js / NextAuth",
+      "MUI DataGrid",
+      "Material UI",
+      "Zustand"
+    ],
+    arquitetura: [
+      "Next.js App Router",
+      "Proteção de rotas com Auth.js",
+      "JWT para autenticação",
+      "Prisma ORM para persistência de dados",
+      "PostgreSQL como banco de dados",
+      "Componentes reutilizáveis",
+      "Separação por responsabilidade",
+      "Custom Hooks",
+      "Gerenciamento de estado",
+    ],
+    competencias: [
+      "Componentização",
+      "Hooks customizados",
+      "Organização de código",
+      "Responsividade",
+      "Boas práticas de Front-End",
+      "Acessibilidade",
+      "Performance",
+      "Boas práticas de Back-End",
+      "Segurança",
+      "Autenticação e Autorização",
+      "Persistência de dados",
+      "RBAC (Controle de Acesso Baseado em Funções)",
+      "Gerenciamento de estado",
+    ],
+    desafios: "Fazer um template que seja escalável, seguro e de fácil manutenção, permitindo que outros desenvolvedores possam utilizá-lo como base para seus projetos.",
+    solucoes: "Cada vez que iniciava um projeto novo eu percebia que estava refazendo a mesma estrutura, então decidi criar um template que pudesse ser utilizado como base para novos projetos, com uma estrutura escalável, segura e de fácil manutenção.",
+    destaque: true,
+    equipe: false,
+    tamanhoEquipe: undefined,
+    tipo: "Template",
+    funcionalidades: [
+      "Autenticação de usuários",
+      "Proteção de rotas",
+      "Criar cadastro de usuários",
+      "Login e Logout",
+      "Gerenciar usuários",
+      "soft delete de usuários",
+    ],
+    inicio: new Date("2026-05-06"),
+    ultimaAtualizacao: new Date("2026-06-02"),
+    modulos: [
+      "Página Inicial",
+      "Autenticação",
+    ],
+  },
+  {
+    id: 3,
+    nome: "ERP",
+    resumo: "Front-End ERP e Back-End ERP-BackEnd, Web com React e tailwind e Back-End ERP-BackEnd, Back-End em NestJs do projeto ERP, Persistencia em base de dados Postgres e Prisma ORM.",
+    descricao: `
+    Front-End ERP e Back-End ERP-BackEnd, Web com React e tailwind 
+    e Back-End ERP-BackEnd, Back-End em NestJs do projeto ERP, Persistencia 
+    em base de dados Postgres e Prisma ORM.
+    `,
+    status: "Descontinuado",
+    versao: "MVP",
+    repositorioPrivado: true,
+    tecnologias: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "PostgreSQL",
+      "JWT",
+      "NestJS",
+      "MUI DataGrid",
+      "Material UI",
+      "Zustand"
+    ],
+    arquitetura: [
+      "Next.js App Router",
+      "Proteção de rotas",
+      "JWT para autenticação",
+      "PostgreSQL como banco de dados",
+      "Componentes reutilizáveis",
+      "Separação por responsabilidade",
+      "Custom Hooks",
+      "Gerenciamento de estado",
+    ],
+    competencias: [
+      "Componentização",
+      "Hooks customizados",
+      "Organização de código",
+      "Responsividade",
+      "Boas práticas de Front-End",
+      "Acessibilidade",
+      "Performance",
+      "Boas práticas de Back-End",
+      "Segurança",
+      "Autenticação e Autorização",
+      "Persistência de dados",
+      "RBAC (Controle de Acesso Baseado em Funções)",
+      "Gerenciamento de estado",
+    ],
+    desafios: "Fazer um ERP que seja escalável, seguro e de fácil manutenção, permitindo apenas pequenas lojas com gerenciamento simples.",
+    solucoes: "Ajudar pequenas lojas a gerenciar seu negócio de forma fácil, com um ERP que seja escalável, seguro e de fácil manutenção.",
+    destaque: false,
+    equipe: false,
+    tamanhoEquipe: undefined,
+    tipo: "ERP",
+    funcionalidades: [
+      "Autenticação de usuários",
+      "Proteção de rotas",
+      "Criar cadastro de usuários",
+      "Login e Logout",
+      "Gerenciar usuários",
+      "soft delete de usuários",
+      "Gerenciamento de entidades",
+      "Gerenciamento de produtos",
+      "Gerenciamento de estoque",
+      "Relatórios simples de movimento de estoque",
+    ],
+    inicio: new Date("2026-07-31"),
+    ultimaAtualizacao: new Date("2025-12-06"),
+    modulos: [
+      "Página Inicial",
+      "Autenticação",
+      "Gerenciamento de usuários",
+      "Gerenciamento de entidades",
+      "Gerenciamento de produtos",
+      "Gerenciamento de estoque",
+      "Gerenciamento de movimento de estoque",
+      "Relatórios",
+    ],
+  },
 ]
-/*
-OK portifolio-2.0 - Versão melhorada do primeiro portifólio, usando Next mas sem Back-End
-Portifolio - Primeira versão do portifólio, usando Vite, React, Tailwind 
-Template-Next - Template Full Stack Atual com: Next.js, Prisma ORM, Postgres, AuthJs + Componentes customizados(Alert, Prompt, Confirm, Modal, Card, dentre outros) 
-Template-Next-Auth-MUI-Jest - Template Full Stack do projeto template-next-prisma-auth-mui melhorado com Next, Prisma, AuthJs, MUI e Postgres + Testes em Jest
-template-next-prisma-auth-mui - Template Full Stack com Next, Prisma, AuthJs, MUI e Postgres
-Login-Next - Front-End do backend-login, Tailwind, React e NextJs
-backend-login - Back-End do Login-Next Com autenticação JWT e hash de senha com base de dados Postgres
-ERP-BackEnd - Back-End em NestJs do projeto ERP, Persistencia em base de dados Postgres e Prisma ORM
-ERP - Front-End ERP Web com React e tailwind e Back-End ERP-BackEnd
-ERP-Lite - ERP Software instalável para Front-End com json server para Back-End
-json-server - Back-End do ERP-Lite usando arquivo .json como persistencia de dados 
-enterprise - ERP de Navegador localstorage refaturado e continuado o GestorPro
-GestorPro - ERP de navegador localstorage mas foi descontinuada: HTML, CSS e JS Puro
-empresas-react - Teste para empresa react
-Funcoes-e-Modularizacao - Prova de Web UX da Faculdade
-Agenda-2.0 - Refaturação da AgendaProMaster com react + localstorage
-AgendaProMaster- Refaturação da primeira agenda localstorage com bootstrap
-Agenda - Primeira Agenda Web Localstorage
-Projeto-Cadastro-de-Usuario - Curso Coder
-Funcionalidades - Estudo prático
-RoadMapC - Prova da Faculdade Web UX com conhecimentos de C ANSI
-FisdGame - Projeto da Game JAM, jogo 2D usando Godot Engine
-
-AgendaDeProjetos - Front-End usando Next, Tailwind, foi descontinuado e era Agenda de projetos, login, registro e proteção de rotas funcionando
-AgendaDeProjetosBackEnd - Back-End do projeto AgendaDeProjetos, em NestJs + Postgres, Autenticação JWT, parte de projetos: cadastro, edição e leitura
-
-*/

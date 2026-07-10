@@ -60,13 +60,17 @@ body {
 }
 
 @utility modal {
-  @apply bg-gray-900 text-white rounded-none md:rounded-xl h-[100%] md:h-[80%] w-[100%] md:w-[80%];
+  @apply bg-gray-900 light:bg-blue-200 text-white light:text-black rounded-none md:rounded-xl h-[100%] md:h-[80%] w-[100%] md:w-[80%];
   @apply lg:w-[50%] flex justify-start items-center py-3 px-5 overflow-y-auto overflow-x-hidden relative flex-col gap-2 border-2 border-gray-600;
 }
 
 @utility paper {
   @apply flex gap-2 items-center border-2 rounded-xl py-1 px-4 text-start transition-transform hover:scale-101 leading-5;
   @apply bg-gray-900 light:bg-gray-300 border-gray-600 hover:border-blue-600 hover:bg-blue-950 light:hover:bg-blue-200 text-white light:text-black;
+}
+
+@utility destaque {
+  @apply bg-amber-900! border-amber-400! light:bg-yellow-200! light:border-amber-400!;
 }
 
 /* Nome box para nao colidir com container de tailwind */
@@ -87,7 +91,7 @@ body {
 }
 
 @utility btn-disabled {
-  @apply px-4 py-2 cursor-not-allowed rounded-md text-lg neutral hover:brightness-120 text-white;
+  @apply px-4 py-2 cursor-not-allowed rounded-md text-lg hover:brightness-120 bg-gray-800 text-gray-600!;
 }
 
 @utility btn-error {

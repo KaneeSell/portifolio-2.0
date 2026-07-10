@@ -6,11 +6,11 @@ import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { Fragment, useEffect, useState } from "react";
-import { FaCheckCircle, FaExpand } from "react-icons/fa";
+import { FaCheckCircle, FaExpand, FaLock, FaStar } from "react-icons/fa";
 import Lightbox from "yet-another-react-lightbox";
 import { NomeTecnologia, ProjetoStatus, ProjetoTypes, ProjetoVersao, todosProjetoStatus, todosProjetoVersao } from "@/types/projetoTypes";
 import { todasTecnologias } from "@/data/tecnologiasDados";
-import { MdFilterAlt, MdFilterAltOff } from "react-icons/md";
+import { MdFilterAlt, MdFilterAltOff, MdHideImage } from "react-icons/md";
 import { FaCircleXmark, FaFilterCircleXmark } from "react-icons/fa6";
 import CustomCheckBox from "../button/CustomCheckBox";
 import CustomLightBox from "../lightbox/CustomLightBox";
@@ -277,11 +277,12 @@ export default function Projetos() {
               }}
               key={index}
               className={`
-              text-xl md:text-2xl flex flex-col gap-0.5 h-full sm:h-120
-              border rounded-2xl p-3 paper group w-full sm:w-90
+              text-xl md:text-2xl flex flex-col gap-0.5 h-full sm:h-120 relative
+              border rounded-2xl p-3 paper group w-full sm:w-90 ${projeto.destaque && "destaque shadow-2xl shadow-amber-400/60"}
             `}
             >
               <span className="light:group-hover:text-blue-800">{projeto.nome}</span>
+              {projeto.destaque && <FaStar className="text-amber-400 absolute top-2 right-2" />}
               <figure className="relative h-full w-full">
                 <div
                   className={`
@@ -312,7 +313,7 @@ export default function Projetos() {
                     {projeto.versao}
                   </span>
                 </div>
-                {projeto.imagemPrincipal && (
+                {projeto.imagemPrincipal ? (
                   <Fragment>
                     <CustomImage
                       galery={projeto.galeria}
@@ -320,11 +321,15 @@ export default function Projetos() {
                       img={projeto.imagemPrincipal} />
 
                   </Fragment>
+                ) : (
+                  <div className="box h-40 text-lg">
+                    Sem Imagem <MdHideImage />
+                  </div>
                 )}
               </figure>
               <span
                 onClick={() => console.log(projeto)}
-                className="text-base px-2 font-thin h-full text-sub overflow-y-auto">
+                className="text-base px-2 font-thin h-full text-sub overflow-y-auto leading-4">
                 {projeto.resumo}
               </span>
               <div>
@@ -344,10 +349,11 @@ export default function Projetos() {
               <span className="stack-col">
                 {projeto.repositorioPrivado && (
                   <button
-                    className="btn btn-disabled"
+                    className="btn btn-disabled py-1 w-full"
                     disabled
                   >
                     Repositorio Privado
+                    <FaLock />
                   </button>
                 )}
                 {projeto.repo && (

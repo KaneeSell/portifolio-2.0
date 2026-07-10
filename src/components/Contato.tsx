@@ -69,7 +69,7 @@ export default function Contato() {
         id="contato"
         className="scroll-m-15 mt-10 lg:w-2/3 px-5 flex flex-col justify-center items-center gap-10 w-full"
       >
-        <span className="flex flex-col gap-5 border p-10 lg:p-20 rounded-3xl hover:scale-100 bg-gray-900">
+        <span className="flex flex-col gap-5 border p-10 lg:p-20 rounded-3xl hover:scale-100 paper">
           <motion.span
             initial={{
               opacity: 0,
