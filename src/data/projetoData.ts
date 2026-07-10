@@ -37,12 +37,11 @@ export const projetoDados: ProjetoTypes[] = [
   {
     id: 1,
     nome: "Portfólio 2.0",
-    resumo: "Portfólio desenvolvido com Next.js, focado em apresentar projetos, tecnologias e experiências.",
+    resumo: "Portfólio 2.0 este projeto é esse portifólio que está vendo, então nao coloquei fotos em galeria por esse motivo, focado em apresentar projetos, tecnologias e experiências.",
     descricao: `
-    Segunda versão do meu portfólio pessoal, criada para substituir a primeira versão e aplicar os conhecimentos adquiridos em React, Next.js e Tailwind CSS.
-
+    Segunda versão do meu portfólio pessoal, este projeto é esse portifólio que está vendo, então nao coloquei fotos em galeria por esse motivo, criada para substituir a 
+    primeira versão e aplicar os conhecimentos adquiridos em React, Next.js e Tailwind CSS.
     Diferente do Portfólio 3.0, este projeto foi desenvolvido sem auxílio de IA durante a implementação, representando minha evolução técnica na época.
-
     Atualmente os dados permanecem hardcoded por opção, evitando dependência de um banco de dados em nuvem apenas para conteúdo estático.
   `,
     status: "Concluido",
@@ -54,26 +53,12 @@ export const projetoDados: ProjetoTypes[] = [
 
     repo: "https://github.com/KaneeSell/portifolio-2.0",
 
-    galeria: [
-      {
-        src: "https://i.imgur.com/6iXJRlS.png",
-        height: 725,
-        width: 1540,
-        title: "Tela Inicial Portifólio 2.0",
-        description: "Tela inicial do projeto Portifólio 2.0, nessa tela foi focado em manter uma interface agradavel, menu responsivo, menu inferior mobile exclusivo, e botão de download do meu curriculo para facilitar."
-      },
-      {
-        src: "https://imgur.com/vUD7fEv.png",
-        title: "teste",
-        description: "lorem geafsvc asc as ca "
-      }
-    ],
     imagemPrincipal: {
       src: "https://i.imgur.com/6iXJRlS.png",
       height: 725,
       width: 1540,
       title: "Tela Inicial Portifólio 2.0",
-      description: "Tela inicial do projeto Portifólio 2.0, nessa tela foi focado em manter uma interface agradavel, menu responsivo, menu inferior mobile exclusivo, e botão de download do meu curriculo para facilitar."
+      description: "Tela inicial do projeto Portifólio 2.0, este projeto é esse portifólio que está vendo, então nao coloquei fotos em galeria por esse motivo, mas nessa tela foi focado em manter uma interface agradavel, menu responsivo, menu inferior mobile exclusivo, e botão de download do meu curriculo para facilitar."
     },
 
     repositorioPrivado: false,
